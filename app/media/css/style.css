@@ -1,3 +1,13 @@
 body {
 	background: #000000;
 }
+
+#player{
+	position: absolute;
+	z-index: 20;
+}
+
+#background{
+	position: absolute;
+	z-index: 1;
+}

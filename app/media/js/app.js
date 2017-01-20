@@ -10,13 +10,14 @@ var surfaces = Surfaces(20, 20);
 // Renderer
 var renderer = RenderTiles("background");
 
-
+player();
 // loop
 function loop() {
 	// render if update
 	renderer.draw(surfaces.GetSurfaces());
 
 	window.requestAnimFrame(loop);
+	player().drawPlayer();
 }
 
 // start loop
