@@ -11,3 +11,8 @@ body {
 	position: absolute;
 	z-index: 1;
 }
+
+#waves {
+	position: absolute;
+	z-index: 10;
+}

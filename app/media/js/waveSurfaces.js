@@ -5,6 +5,7 @@
 function WaveSurfaces(surfaceWaves) {
 
     var maxValue = 100;
+    var delay = 5;
 
     function SpawnWave(x, y, direction) {
 
@@ -26,7 +27,7 @@ function WaveSurfaces(surfaceWaves) {
             console.log(surface);
             if(surface != null){
                 surface.waves.push({
-                    start:10,
+                    start:delay*(i-x),
                     end:0
                 });
 

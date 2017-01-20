@@ -13,8 +13,8 @@ function RenderTiles(contextID) {
 	ctx.translate(width/2, 0);
 	ctx.rotate(45*Math.PI/180);
 
-	function draw(tiles) {
-		ctx.clearRect(0, 0, canvas.width, 0);
+	function drawTiles(tiles) {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 		ctx.fillStyle = "#1c1a1a";
 		for (var i = 0; i < tiles.length; i++) {
@@ -31,7 +31,33 @@ function RenderTiles(contextID) {
 
 	}
 
+	function drawWaves(tiles) {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+		for (var i = 0; i < tiles.length; i++) {
+			var tile = tiles[i];
+
+			for (var j = 0; j < tile.waves.length; j++) {
+				var wave = tile.waves[j];
+				if (wave.start == 0) {
+					if (wave.end < 60) {
+						ctx.fillStyle = "rgba(98,38,109, " + (wave.end*2) + ")";
+					} else {
+						ctx.fillStyle = "rgba(98,38,109, " + (wave.end*2-wave.end) + ")";
+					}					
+			        ctx.fillRect(tile.x*(size+margin),tile.y*(size+margin),size,size);
+				}
+			}
+		}
+	}
+
+	function draw(tiles) {
+
+
+	}
+
 	return {
-		draw: draw
+		drawTiles: drawTiles,
+		drawWaves: drawWaves
 	}
 }
