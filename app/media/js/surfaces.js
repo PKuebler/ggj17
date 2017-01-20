@@ -19,7 +19,10 @@ function Surfaces(Length, Height) {
             surfaces.push(surface);
         }
     }
-    console.log(surfaces);
+
+    function GetSurfaces() {
+        return surfaces;
+    }
 
     function GetSurface(x, y) {
         return surfaces[ (y * Length) + x ];
@@ -30,6 +33,7 @@ function Surfaces(Length, Height) {
     }
 
     return {
+        GetSurfaces: GetSurfaces,
         GetSurface: GetSurface,
         SetLife: SetLife
     }

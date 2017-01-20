@@ -10,28 +10,28 @@ function RenderTiles(contextID) {
 	canvas.width = width;
 	canvas.height = height;
 
+	ctx.translate(width/2, 0);
+	ctx.rotate(45*Math.PI/180);
+
 	function draw(tiles) {
 		ctx.clearRect(0, 0, canvas.width, 0);
-		ctx.translate(width/2, 0);
-		ctx.rotate(45*Math.PI/180);
 
 		ctx.fillStyle = "#1c1a1a";
-		for (var i = 0; i < 20; i++) {
-			for (var j = 0; j < 20; j++) {
-				if (i == 10 && j == 10) {
-					ctx.fillStyle = "#62266d";
-				} else {
-					ctx.fillStyle = "#1c1a1a";					
-				}
-		        ctx.fillRect(i*(size+margin),j*(size+margin),size,size);
+		for (var i = 0; i < tiles.length; i++) {
+			var tile = tiles[i];
+
+			if (tile.life > 50) {
+				ctx.fillStyle = "#1c1a1a";
+			} else {
+				ctx.fillStyle = "#62266d";			
 			}
+
+	        ctx.fillRect(tile.x*(size+margin),tile.y*(size+margin),size,size);
 		}
+
 	}
 
 	return {
 		draw: draw
 	}
 }
-
-var renderer = RenderTiles("background");
-renderer.draw();
