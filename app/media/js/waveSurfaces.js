@@ -8,23 +8,8 @@ function WaveSurfaces(surfaceWaves) {
     var delay = 5;
 
     function SpawnWave(x, y, direction) {
-
-        /*
-        if(direction == 1) {
-
-        } else if (direction == 2) {
-
-        } else if (direction == 3) {
-
-        } else  if (direction == 4) {
-
-        }
-        */
-
-        for(var i = x; i < (x + 10); i++){
-
+        for(var i = x; i < x+10; i++){
             var surface = surfaceWaves.GetSurface(i, y);
-            console.log(surface);
             if(surface != null){
                 surface.waves.push({
                     start:delay*(i-x),

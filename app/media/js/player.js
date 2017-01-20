@@ -2,22 +2,26 @@
 
 
 
-function Player(){
+function Player(handlerAttack){
 	var canvas = document.getElementById('player');
 	var ctx = canvas.getContext("2d");
 
-
-	const playerWidth = 20;
 	canvas.width = width;
 	canvas.height = height;
-	var playerXPos = canvas.width/2;
-	var playerYPos = canvas.height/2;
+	ctx.translate(width/2, 0);
+	ctx.rotate(45*Math.PI/180);
+
+	const playerWidth = 20;
+	var playerXPos = 0;
+	var playerYPos = 0;
 	var velX = 0.0;
 	var velY = 0.0;
 	var playerVelocity = 0.0;
 	const playerMaxSpeed = 1.0;
 	const playerAcceleration = 0.3;
 	const friction = 0.92;
+
+	var tileSize = 32;
 
 	var left = false;
 	var right = false;
@@ -56,6 +60,9 @@ function Player(){
 			
 			down = false;
 		}
+		if(e.keyCode == 32) {
+			handlerAttack(getPlayerTilePos());
+		}
 	}
 
 
@@ -73,7 +80,6 @@ function Player(){
 
 	 	if(left){
 			velX-=playerAcceleration;
-
 	 	}
 	 	if(right){
 	 		velX+=playerAcceleration;
@@ -84,13 +90,26 @@ function Player(){
 	 	if(down){
 	 		velY+=playerAcceleration;
 	 	}
-
 	 	
-	 
 	 	playerXPos+= velX;
 	 	playerYPos += velY;
-	 		velX *= friction;
-	 	velY *= friction; 
+ 		velX *= friction;
+	 	velY *= friction;
+	}
+
+	function getPlayerTilePos() {
+		var direction = {x: 0, y: 0};
+		if (left)
+			direction.x = -1;
+		else if (right)
+			direction.x = 1;
+
+		if (up)
+			direction.y = -1;
+		else if (down)
+			direction.y = 1;
+
+		return {x: Math.floor(playerXPos/tileSize), y: Math.floor(playerYPos/tileSize), direction};
 	}
 
 
@@ -102,15 +121,9 @@ function Player(){
 		drawPlayer : drawPlayer,
 		updatePlayer : updatePlayer,
 		playerXPos : playerXPos,
-		playerYPos : playerYPos
+		playerYPos : playerYPos,
+		getPlayerTilePos: getPlayerTilePos
 	}
 
 
 }
-
-
-
-
-
-
-

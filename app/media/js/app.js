@@ -12,7 +12,11 @@ var waves = WaveSurfaces(surfaces);
 var renderer = RenderTiles("background");
 var waveRenderer = RenderTiles("waves");
 
-var player = Player();
+function handlerAttack(pos) {
+	waves.SpawnWave(pos.y, pos.x, pos.direction);
+}
+
+var player = Player(handlerAttack);
 // loop
 function loop() {
 	// render if update
