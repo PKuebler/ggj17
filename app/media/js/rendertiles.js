@@ -40,20 +40,15 @@ function RenderTiles(contextID) {
 			for (var j = 0; j < tile.waves.length; j++) {
 				var wave = tile.waves[j];
 				if (wave.start == 0) {
-					if (wave.end < 60) {
-						ctx.fillStyle = "rgba(98,38,109, " + (wave.end*2) + ")";
+					if (wave.end < 10) {
+						ctx.fillStyle = "rgba(98,38,109," + remap(wave.end*2, 0,wave.maxEnd,0,1) + ")";
 					} else {
-						ctx.fillStyle = "rgba(98,38,109, " + (wave.end*2-wave.end) + ")";
+						ctx.fillStyle = "rgba(98,38,109," + remap(wave.end*2, wave.maxEnd,0,1,0) + ")";
 					}					
 			        ctx.fillRect(tile.x*(size+margin),tile.y*(size+margin),size,size);
 				}
 			}
 		}
-	}
-
-	function draw(tiles) {
-
-
 	}
 
 	return {

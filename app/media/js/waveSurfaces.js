@@ -28,7 +28,8 @@ function WaveSurfaces(surfaceWaves) {
             if(surface != null){
                 surface.waves.push({
                     start:delay*(i-x),
-                    end:0
+                    end:0,
+                    maxEnd: maxValue
                 });
 
             }
