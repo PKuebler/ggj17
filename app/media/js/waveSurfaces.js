@@ -4,7 +4,7 @@
 
 function WaveSurfaces(surfaceWaves) {
 
-    var maxValue = 100;
+    var maxValue = 60;
     var delay = 5;
 
     function SpawnWave(x, y, direction) {
@@ -28,10 +28,8 @@ function WaveSurfaces(surfaceWaves) {
             if(surface != null){
                 surface.waves.push({
                     start:delay*(i-x),
-                    end:0,
-                    maxEnd: maxValue
+                    end:maxValue
                 });
-
             }
         }
     }
@@ -43,8 +41,8 @@ function WaveSurfaces(surfaceWaves) {
             for(var j = 0; j < surface.waves.length; j++){
                 surface.waves[j].start = Math.max(surface.waves[j].start -1, 0);
                 if(surface.waves[j].start == 0){
-                    surface.waves[j].end = Math.min(surface.waves[j].end +1, maxValue );
-                    if(surface.waves[j].end == maxValue){
+                    surface.waves[j].end = Math.max(surface.waves[j].end -1, 0);
+                    if(surface.waves[j].end == 0){
                         surface.waves.splice(j, 1);
                     }
                 }
