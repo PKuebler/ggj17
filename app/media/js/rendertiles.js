@@ -1,8 +1,5 @@
 
 function RenderTiles(contextID) {
-	var size = 32;
-	var margin = 2;
-
 	// Set Canvas
 	var canvas = document.getElementById(contextID),
 	    ctx = canvas.getContext("2d");
@@ -26,7 +23,7 @@ function RenderTiles(contextID) {
 				ctx.fillStyle = "#62266d";			
 			}
 
-	        ctx.fillRect(tile.x*(size+margin),tile.y*(size+margin),size,size);
+	        ctx.fillRect(tile.x*(TILE_SIZE+MARGIN),tile.y*(TILE_SIZE+MARGIN),TILE_SIZE,TILE_SIZE);
 		}
 
 	}
@@ -45,7 +42,7 @@ function RenderTiles(contextID) {
 					} else {
 						ctx.fillStyle = "rgba(98,38,109," + remap(wave.end*2, 80,0,1,0) + ")";
 					}					
-			        ctx.fillRect(tile.x*(size+margin),tile.y*(size+margin),size,size);
+			        ctx.fillRect(tile.x*(TILE_SIZE+MARGIN),tile.y*(TILE_SIZE+MARGIN),TILE_SIZE,TILE_SIZE);
 				}
 			}
 		}

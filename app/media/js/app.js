@@ -5,7 +5,7 @@ var devicePixelRatio = window.devicePixelRatio || 1;
 
 
 // Init
-var surfaces = Surfaces(20, 20);
+var surfaces = Surfaces(MAP_SIZE.x, MAP_SIZE.y);
 var waves = WaveSurfaces(surfaces);
 
 // Renderer

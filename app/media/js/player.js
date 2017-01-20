@@ -21,8 +21,6 @@ function Player(handlerAttack){
 	const playerAcceleration = 0.3;
 	const friction = 0.92;
 
-	var tileSize = 32;
-
 	var left = false;
 	var right = false;
 	var up = false;
@@ -109,7 +107,7 @@ function Player(handlerAttack){
 		else if (down)
 			direction.y = 1;
 
-		return {x: Math.floor(playerXPos/tileSize), y: Math.floor(playerYPos/tileSize), direction};
+		return {x: Math.floor(playerXPos/TILE_SIZE), y: Math.floor(playerYPos/TILE_SIZE), direction};
 	}
 
 
