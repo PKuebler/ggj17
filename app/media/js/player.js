@@ -17,7 +17,7 @@ function Player(){
 	var playerVelocity = 0.0;
 	const playerMaxSpeed = 1.0;
 	const playerAcceleration = 0.3;
-	const friction = 0.96;
+	const friction = 0.92;
 
 	var left = false;
 	var right = false;
@@ -100,7 +100,9 @@ function Player(){
 	document.addEventListener("keyup", keyUpHandler, false);
 	return{
 		drawPlayer : drawPlayer,
-		updatePlayer : updatePlayer
+		updatePlayer : updatePlayer,
+		playerXPos : playerXPos,
+		playerYPos : playerYPos
 	}
 
 
