@@ -12,7 +12,6 @@ function Player(){
 	canvas.height = height;
 	var playerXPos = canvas.width/2;
 	var playerYPos = canvas.height/2;
-	console.log("1");
 	var velX = 0.0;
 	var velY = 0.0;
 	var playerVelocity = 0.0;
@@ -25,24 +24,19 @@ function Player(){
 	var up = false;
 	var down = false;
 
-console.log("2");
 	function keyDownHandler(e){
 		if(e.keyCode == 65){
 			left = true;
 		}
 		if(e.keyCode == 68){
-			velX+=playerAcceleration;
 			right = true;
 		}
 		if(e.keyCode == 87){
-			velY+=playerAcceleration;
 			up = true;
 		}
 		if(e.keyCode == 83){
-			velY-=playerAcceleration;
 			down = true;
 		}
-		console.log('down Handler');
 	}
 
 	function keyUpHandler(e){
@@ -62,7 +56,6 @@ console.log("2");
 			
 			down = false;
 		}
-		console.log('up Handler');
 	}
 
 
@@ -86,10 +79,10 @@ console.log("2");
 	 		velX+=playerAcceleration;
 	 	}
 	 	if(up){
-	 		velY+=playerAcceleration;
+	 		velY-=playerAcceleration;
 	 	}
 	 	if(down){
-	 		velY-=playerAcceleration;
+	 		velY+=playerAcceleration;
 	 	}
 
 	 	
