@@ -13,7 +13,8 @@ function Surfaces(Length, Height) {
                 x: x,
                 y: y,
                 color: '#776655',
-                life: 100
+                life: 100,
+                waves: []
             };
 
             surfaces.push(surface);

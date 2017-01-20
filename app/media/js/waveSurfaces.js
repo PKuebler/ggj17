@@ -2,28 +2,13 @@
  * Created by adrianseehawer on 20.01.17.
  */
 
-function WaveSurfaces(Length, Height) {
+function WaveSurfaces(surfaceWaves) {
 
-    var surfaces = [];
+    var maxValue = 100;
 
-    /*
-    for (var x = 0; x < Length; x++){
-        for (var y = 0; y < Height; y++){
+    function SpawnWave(x, y, direction) {
 
-            var surface = {
-                x: x,
-                y: y,
-                color: '#776655',
-                life: 100
-            };
-
-            surfaces.push(surface);
-        }
-    }
-    */
-
-    function spawnWave(x, y, direction) {
-        
+        /*
         if(direction == 1) {
 
         } else if (direction == 2) {
@@ -33,23 +18,36 @@ function WaveSurfaces(Length, Height) {
         } else  if (direction == 4) {
 
         }
-    }
-    
-    
-    function waveUp() {
-        
-    }
-    
-    function waveRight() {
-        
-    }
-    
-    function waveDown() {
-        
+        */
+
+        for(var i = x; i < (x + 10); i++){
+
+            var surface = surfaceWaves.GetSurface(i, y);
+            console.log(surface);
+            if(surface != null){
+                surface.waves.push({
+                    start:10,
+                    end:0
+                });
+
+            }
+        }
     }
 
-    function waveLeft() {
-        
+    function UpdateWave() {
+        var surfaceses = surfaceWaves.GetSurfaces();
+        for (var i = 0; i < surfaceses.length; i++){
+            var surface = surfaceses[i];
+            for(var j = 0; j < surface.waves.length; j++){
+                surface.waves[j].start = Math.max(surface.waves[j].start -1, 0);
+                if(surface.waves[j].start == 0){
+                    surface.waves[j].end = Math.min(surface.waves[j].end +1, maxValue );
+                    if(surface.waves[j].end == maxValue){
+                        surface.waves.splice(j, 1);
+                    }
+                }
+            }
+        }
     }
     
     function GetSurfaces() {
@@ -62,6 +60,8 @@ function WaveSurfaces(Length, Height) {
 
     return {
         GetSurfaces: GetSurfaces,
-        GetSurface: GetSurface
+        GetSurface: GetSurface,
+        SpawnWave: SpawnWave,
+        UpdateWave: UpdateWave
     }
 }
