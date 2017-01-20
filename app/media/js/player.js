@@ -3,9 +3,7 @@
 
 
 function player(){
-	var canvas = document.createElement('canvas');
-	canvas.id = 'canv';
-
+	var canvas = document.getElementById('player');
 	var ctx = canvas.getContext("2d");
 
 
@@ -57,7 +55,7 @@ function player(){
 	function drawPlayer(){
 		ctx.fillStyle = "#333333";
 		ctx.beginPath();
-		ctx.arc(playerXPos,playerYPos,playerWidth,Math.PI*2, true);
+		ctx.arc(playerXPos,playerYPos,playerWidth,0, 2 * Math.PI, false);
 		ctx.closePath();
 		ctx.fill();
 	}
