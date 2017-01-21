@@ -1,4 +1,3 @@
-
 function WaveController(surefaces) {
 
 	function step(pos, i, playerID, direction) {

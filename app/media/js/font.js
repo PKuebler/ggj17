@@ -1,4 +1,3 @@
-
 function Font(contextID) {
 	// Set Canvas
 	var canvas = document.getElementById(contextID),
