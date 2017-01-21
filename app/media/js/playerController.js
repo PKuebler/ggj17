@@ -39,11 +39,12 @@ function PlayerController(canvasID, waves, surfaces,color) {
 					setDead(players[i], null);
 				}
 			} else if (tile.waves.length > 0) {
-				if (tile.waves.filter(function(wave) {
+				var waves = tile.waves.filter(function(wave) {
 					return wave.playerID != players[i].playerID;
-				}).length > 0) {
+				});
+				if (waves.length > 0) {
 					if(!players[i].isPlayerDead()){
-						setDead(players[i], wave.playerID);
+						setDead(players[i], waves[0].playerID);
 					}
 				}
 			}
