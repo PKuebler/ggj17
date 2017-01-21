@@ -6,6 +6,10 @@ var waveRenderer = null;
 var playerController = null;
 var isRun = false;
 var newGameTimer = null;
+var score = {
+	player1 : 0,
+	player2 : 0
+	};
 
 function startNewGame() {
 	isRun = false;
@@ -40,7 +44,14 @@ function loop() {
 		if (playerController.isEnd() && newGameTimer == null) {			
 			newGameTimer = setTimeout(function() {
 				newGameTimer = null;
-
+				if(playerController.score.player1 == 1){
+					score.player1++;
+					console.log("p1");
+				}else{
+					score.player2++;
+					console.log("p2");
+				}
+				console.log(score);
 				startNewGame();
 			}, TIME_BETWEEN_ROUNDS);
 		}
