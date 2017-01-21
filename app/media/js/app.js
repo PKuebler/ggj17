@@ -88,3 +88,4 @@ function updateCountdown(num) {
 // start loop
 loop();
 startNewGame();
+//Animate().shakeScreen();

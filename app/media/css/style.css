@@ -21,3 +21,29 @@ body {
 	position: absolute;
 	z-index: 30;
 }
+
+@keyframes SHAKE-TOP {
+  0%   { top: 0px; }
+  100% { top:4px; }
+  0%   { top: 0px; }
+}
+@keyframes SHAKE-LEFT {
+  0%   { left: 0px; }
+  100% { left: 4px; }
+  0%   { left: 0px; }
+}
+
+.top{
+  -webkit-animation: SHAKE-TOP 0.1s; /* Safari 4+ */
+  -moz-animation:    SHAKE-TOP 0.1s; /* Fx 5+ */
+  -o-animation:      SHAKE-TOP 0.1s; /* Opera 12+ */
+  animation:         SHAKE-TOP 0.1s; /* IE 10+, Fx 29+ */
+   animation-timing-function: ease-out;
+}
+.left{
+  -webkit-animation: SHAKE-LEFT 0.1s; /* Safari 4+ */
+  -moz-animation:    SHAKE-LEFT 0.1s; /* Fx 5+ */
+  -o-animation:      SHAKE-LEFT 0.1s; /* Opera 12+ */
+  animation:         SHAKE-LEFT 0.1s; /* IE 10+, Fx 29+ */
+   animation-timing-function: ease-out;
+}
