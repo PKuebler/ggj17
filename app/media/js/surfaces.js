@@ -16,7 +16,8 @@ function Surfaces(Length, Height, colorset) {
                 color: colorset.tile(),
                 bg: colorset.bg(),
                 life: life,
-                waves: []
+                waves: [],
+                topSurface: ((y == 0)?null:surfaces[(y-1)*Length+x])
             };
 
             surfaces.push(surface);
@@ -32,7 +33,7 @@ function Surfaces(Length, Height, colorset) {
     }
 
     function SetLife(x, y, life) {
-        GetSurface(x, y).life = life;
+        GetSurface(x, y).life = Math.max(0,life);
     }
 
     return {
