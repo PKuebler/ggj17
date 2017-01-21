@@ -12,6 +12,7 @@ var waveRenderer = RenderTiles("waves",colorset);
 // PlayerController
 var playerController = PlayerController("player", waves,surfaces,colorset);
 playerController.spawnPlayer();
+playerController.spawnPlayer();
 
 // loop
 function loop() {

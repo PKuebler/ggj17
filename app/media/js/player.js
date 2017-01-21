@@ -88,7 +88,6 @@ function Player(id, ctx, keyLayout, color, waves){
 		ctx.fill();
 		//player draw
 		ctx.fillStyle = color;
-        ctx.fillRect(pos.x,pos.y,TILE_SIZE/4,TILE_SIZE/2);
 		if (isDead) {
 	        ctx.fillRect(pos.x,pos.y,TILE_SIZE/2,TILE_SIZE/4);
 	    } else {

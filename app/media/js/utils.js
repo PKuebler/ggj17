@@ -19,7 +19,7 @@ function run(direction, pos, max, callback, playerID, i) {
 	pos.x += direction.x;
 	pos.y += direction.y;
 
-	callback(pos, i, playerID);
+	callback(pos, i, playerID, direction);
 
 	i++;
 
