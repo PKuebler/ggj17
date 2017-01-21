@@ -48,33 +48,31 @@ function loop() {
 		waveRenderer.drawWaves(surfaces.GetSurfaces());
 		waves.UpdateWave();
 
-<<<<<<< HEAD
-		if (playerController.isEnd() && newGameTimer == null) {			
-			newGameTimer = setTimeout(function() {
-				newGameTimer = null;
-				if(playerController.score.player1 == 1){
+
+
+
+
+if (playerController.isEnd() && newGameTimer == null) {
+            // set timer
+            updateCountdown(newGameCountDown);
+            if (newGameCountDown == 0) {
+            	if(playerController.score.player1 == 1 && isRun){
 					score.player1++;
 					console.log("p1");
 				}else{
 					score.player2++;
 					console.log("p2");
 				}
-				console.log(score);
-=======
-		if (playerController.isEnd() && newGameTimer == null) {
-			// set timer
-			updateCountdown(newGameCountDown);
-			if (newGameCountDown == 0) {
->>>>>>> fa0509f500ce17c3b18974ec0c120b73042f557f
-				startNewGame();
-			} else {
-				newGameTimer = setTimeout(function() {
-					newGameTimer = null;
-				}, 1000);
-			}
-			
-			newGameCountDown--;
-		}
+                startNewGame();
+            } else {
+                newGameTimer = setTimeout(function() {
+                    newGameTimer = null;
+                }, 1000);
+            }
+           
+            newGameCountDown--;
+        }
+
 	}
 	window.requestAnimFrame(loop);
 }
