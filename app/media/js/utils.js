@@ -16,8 +16,8 @@ function run(direction, pos, max, callback, i) {
 		i = 0;
 	}
 
-	pos.x+=direction.x
-	pos.y+=direction.y
+	pos.x += direction.x;
+	pos.y += direction.y;
 
 	callback(pos);
 
