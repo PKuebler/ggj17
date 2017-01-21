@@ -29,7 +29,7 @@ var KEY_LAYOUT = [
 		right: 39,
 		up: 38,
 		down: 40,
-		action: 190
+		action: 189
 	}
 ];
 
