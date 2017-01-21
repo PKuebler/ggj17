@@ -41,28 +41,28 @@ function PlayerController(canvasID, waves, surfaces,color) {
 			return;
 
 		// HITBOX
-		var hitboxPos = player.getPlayerTileHitbox(0,10);
+		var hitboxPos = player.getPlayerTileHitbox(0,5);
 		if (hitboxPos.x != tilePos.x || hitboxPos.y != tilePos.y) {
 			// Hitbox tile checken
 			if(checkWaveHit(hitboxPos,player)) {
 				return;
 			}
 		}
-		var hitboxPos = player.getPlayerTileHitbox(0,-10);
+		var hitboxPos = player.getPlayerTileHitbox(0,-5);
 		if (hitboxPos.x != tilePos.x || hitboxPos.y != tilePos.y) {
 			// Hitbox tile checken
 			if(checkWaveHit(hitboxPos,player)) {
 				return;
 			}
 		}
-		var hitboxPos = player.getPlayerTileHitbox(10,0);
+		var hitboxPos = player.getPlayerTileHitbox(5,0);
 		if (hitboxPos.x != tilePos.x || hitboxPos.y != tilePos.y) {
 			// Hitbox tile checken
 			if(checkWaveHit(hitboxPos,player)) {
 				return;
 			}
 		}
-		var hitboxPos = player.getPlayerTileHitbox(-10,0);
+		var hitboxPos = player.getPlayerTileHitbox(-5,0);
 		if (hitboxPos.x != tilePos.x || hitboxPos.y != tilePos.y) {
 			// Hitbox tile checken
 			if(checkWaveHit(hitboxPos,player)) {
