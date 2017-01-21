@@ -31,10 +31,10 @@ var KEY_LAYOUT = [
 		shotDown: 71
 	},
 	player_2 = { // arrows and .
-		left: 75,
-		right: 186,
-		up: 79,
-		down: 76,
+		left: 74,
+		right: 76,
+		up: 73,
+		down: 75,
 //		action: 189,
 		shotLeft: 37,
 		shotRight: 39,

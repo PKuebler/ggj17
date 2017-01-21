@@ -13,4 +13,4 @@ ore damage the ground to create traps so he can fall out of the world.
 
 Player one moves his char with w, a, s, d and triggers his wave by press the t, f, g ,h keys.
 
-Player two moves his char with o, k, l, ö and triggers his wave by press the arrow keys.
+Player two moves his char with i, j, k, l and triggers his wave by press the arrow keys.
