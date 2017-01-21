@@ -31,24 +31,67 @@ function PlayerController(canvasID, waves, surfaces,color) {
 			players[i].updatePlayer();
 			players[i].drawPlayer();
 
-			// is Dead?
-			var tilePos = players[i].getPlayerTilePos();
-			var tile = surfaces.GetSurface(tilePos.x, tilePos.y);
-			if (tile == null || tile.life == 0) {
-				if(!players[i].isPlayerDead()){
-					setDead(players[i], null);
-				}
-			} else if (tile.waves.length > 0) {
-				var waves = tile.waves.filter(function(wave) {
-					return wave.playerID != players[i].playerID;
-				});
-				if (waves.length > 0) {
-					if(!players[i].isPlayerDead()){
-						setDead(players[i], waves[0].playerID);
-					}
+			checkWaves(players[i]);
+		}
+	}
+
+	function checkWaves(player) {
+		// is Dead?
+		var tilePos = player.getPlayerTilePos();
+		if (checkWaveHit(tilePos,player))
+			return;
+
+		// HITBOX
+		var hitboxPos = player.getPlayerTileHitbox(0,10);
+		if (hitboxPos.x != tilePos.x || hitboxPos.y != tilePos.y) {
+			// Hitbox tile checken
+			if(checkWaveHit(hitboxPos,player)) {
+				return;
+			}
+		}
+		var hitboxPos = player.getPlayerTileHitbox(0,-10);
+		if (hitboxPos.x != tilePos.x || hitboxPos.y != tilePos.y) {
+			// Hitbox tile checken
+			if(checkWaveHit(hitboxPos,player)) {
+				return;
+			}
+		}
+		var hitboxPos = player.getPlayerTileHitbox(10,0);
+		if (hitboxPos.x != tilePos.x || hitboxPos.y != tilePos.y) {
+			// Hitbox tile checken
+			if(checkWaveHit(hitboxPos,player)) {
+				return;
+			}
+		}
+		var hitboxPos = player.getPlayerTileHitbox(-10,0);
+		if (hitboxPos.x != tilePos.x || hitboxPos.y != tilePos.y) {
+			// Hitbox tile checken
+			if(checkWaveHit(hitboxPos,player)) {
+				return;
+			}
+		}
+	}
+
+	function checkWaveHit(pos, player) {
+		var tile = surfaces.GetSurface(pos.x, pos.y);
+		if (tile == null || tile.life == 0) {
+			if(!player.isPlayerDead()){
+				setDead(player, null);
+				return true;
+			}
+		}
+		if (tile.waves.length > 0) {
+			var waves = tile.waves.filter(function(wave) {
+				return wave.playerID != player.playerID;
+			});
+			if (waves.length > 0) {
+				if(!player.isPlayerDead()){
+					setDead(player, waves[0].playerID);
+					return true;
 				}
 			}
 		}
+		return false;
 	}
 
 	function getPlayerColor(){

@@ -146,6 +146,12 @@ function Player(id, ctx, keyLayout, color, waves){
 
 		return {x: Math.floor(pos.x/(TILE_SIZE+MARGIN)), y: Math.floor((pos.y+playerSize.y)/(TILE_SIZE+MARGIN)), direction};
 	}
+	function getPlayerTileHitbox(x,y) {
+		return {
+			x: Math.floor((pos.x+x)/(TILE_SIZE+MARGIN)),
+			y: Math.floor((pos.y+playerSize.y+y)/(TILE_SIZE+MARGIN))
+		}
+	}
 
 	/* EVENT LISTENER */
 	document.addEventListener("keydown", keyDownHandler, false);
@@ -157,7 +163,8 @@ function Player(id, ctx, keyLayout, color, waves){
 		getPlayerTilePos: getPlayerTilePos,
 		setDead: setDead,
 		isPlayerDead: isPlayerDead,
-		playerID: id
+		playerID: id,
+		getPlayerTileHitbox: getPlayerTileHitbox
 	}
 
 
