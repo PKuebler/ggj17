@@ -3,12 +3,14 @@ var surfaces = Surfaces(MAP_SIZE.x, MAP_SIZE.y);
 var waves = WaveController(surfaces);
 //var waves = WaveSurfaces(surfaces);
 
+var colorset = ColorSets().randomColorSet();
+
 // Renderer
-var renderer = RenderTiles("background");
-var waveRenderer = RenderTiles("waves");
+var renderer = RenderTiles("background",colorset);
+var waveRenderer = RenderTiles("waves",colorset);
 
 // PlayerController
-var playerController = PlayerController("player", waves, surfaces);
+var playerController = PlayerController("player", waves,surfaces,colorset);
 playerController.spawnPlayer();
 playerController.spawnPlayer();
 
