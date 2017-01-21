@@ -33,8 +33,11 @@ function PlayerController(canvasID, waves, surfaces) {
 			if (tile == null || tile.life == 0) {
 				players[i].setDead();
 			} else if (tile.waves.length > 0) {
-
-//				players[i].
+				if (tile.waves.filter(function(wave) {
+					return wave.playerID != players[i].playerID;
+				}).length > 0) {
+					players[i].setDead();
+				}
 			}
 		}
 	}

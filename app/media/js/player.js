@@ -119,7 +119,7 @@ function Player(id, ctx, keyLayout, color, waves){
 		else if (down)
 			direction.y = 1;
 
-		return {x: Math.floor(pos.x/(TILE_SIZE+MARGIN)), y: Math.floor(pos.y/(TILE_SIZE+MARGIN)), direction};
+		return {x: Math.floor(pos.x/(TILE_SIZE+MARGIN)), y: Math.floor((pos.y+TILE_SIZE/2)/(TILE_SIZE+MARGIN)), direction};
 	}
 
 	/* EVENT LISTENER */
@@ -130,7 +130,8 @@ function Player(id, ctx, keyLayout, color, waves){
 		drawPlayer : drawPlayer,
 		updatePlayer : updatePlayer,
 		getPlayerTilePos: getPlayerTilePos,
-		setDead: setDead
+		setDead: setDead,
+		playerID: id
 	}
 
 
