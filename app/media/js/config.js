@@ -6,7 +6,7 @@ var devicePixelRatio = window.devicePixelRatio || 1;
 var WAVE_LENGTH = 6;
 
 var TILE_SIZE = 32;
-var MARGIN = 2;
+var MARGIN = 0;
 var MAP_SIZE = {
 	x: Math.floor(width/(TILE_SIZE+MARGIN)),
 	y: Math.floor(height/(TILE_SIZE+MARGIN))

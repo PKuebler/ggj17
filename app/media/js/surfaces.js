@@ -2,7 +2,7 @@
  * Created by adrianseehawer on 20.01.17.
  */
 
-function Surfaces(Length, Height) {
+function Surfaces(Length, Height, colorset) {
 
     var surfaces = [];
 
@@ -17,7 +17,8 @@ function Surfaces(Length, Height) {
             var surface = {
                 x: x,
                 y: y,
-                color: '#776655',
+                color: colorset.tile(),
+                bg: colorset.bg(),
                 life: life,
                 waves: []
             };
