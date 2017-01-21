@@ -1,5 +1,6 @@
 
-function PlayerController(canvasID, waves) {
+function PlayerController(canvasID, waves,color) {
+	var colorset = color;
 	var players = [];
 
 	// add canvas
@@ -17,7 +18,8 @@ function PlayerController(canvasID, waves) {
 			return console.log("Player "+players.length+" need a Key Layout.");
 		}
 
-		players.push(Player(ctx, KEY_LAYOUT[players.length], PLAYER_COLORS[players.length], waves));
+console.log(players.length);
+		players.push(Player(ctx, KEY_LAYOUT[players.length], getPlayerColor(), waves));
 	}
 
 	function update() {
@@ -26,6 +28,15 @@ function PlayerController(canvasID, waves) {
 		for (var i = 0; i < players.length; i++) {
 			players[i].updatePlayer();
 			players[i].drawPlayer();
+		}
+	}
+
+	function getPlayerColor(){
+		if(players.length == 0){
+			return colorset.p1;
+		}
+		if(players.length==1){
+			return colorset.p2;
 		}
 	}
 

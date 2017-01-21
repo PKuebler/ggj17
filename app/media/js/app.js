@@ -6,11 +6,11 @@ var waves = WaveController(surfaces);
 var colorset = ColorSets().randomColorSet();
 
 // Renderer
-var renderer = RenderTiles("background");
-var waveRenderer = RenderTiles("waves");
+var renderer = RenderTiles("background",colorset);
+var waveRenderer = RenderTiles("waves",colorset);
 
 // PlayerController
-var playerController = PlayerController("player", waves);
+var playerController = PlayerController("player", waves,colorset);
 playerController.spawnPlayer();
 
 // loop

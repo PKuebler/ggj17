@@ -1,6 +1,7 @@
 /* DER PLAYER AYER AYER AYER YEAH */
 
 function Player(ctx, keyLayout, color, waves){
+	var playercolor = color;
 	var pos = {
 		x: 0,
 		y: 0
@@ -17,6 +18,10 @@ function Player(ctx, keyLayout, color, waves){
 
 	const playerAcceleration = 0.6;
 	const friction = 0.92;
+
+	function checkPlayerColor(){
+		//if(keyLayout)
+	}
 
 	// Key Handling
 	function keyDownHandler(e) {
@@ -64,11 +69,6 @@ function Player(ctx, keyLayout, color, waves){
 	function drawPlayer(){
 		ctx.fillStyle = color;
         ctx.fillRect(pos.x,pos.y,TILE_SIZE/4,TILE_SIZE/2);
-
-//		ctx.beginPath();
-//		ctx.arc(pos.x,pos.y,PLAYER_WIDTH,0, 2 * Math.PI, false);
-//		ctx.closePath();
-//		ctx.fill();
 	}
 
 	// Update
