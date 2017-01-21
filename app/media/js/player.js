@@ -38,17 +38,15 @@ function Player(id, ctx, keyLayout, color, waves){
 			return;
 
 		if (e.keyCode == keyLayout.left) {
-			left = true;
 			right = false;
-		} else if (e.keyCode == keyLayout.right) {
-			left = false;
+		}
+		if (e.keyCode == keyLayout.right) {
 			right = true;
 		}
 		if (e.keyCode == keyLayout.up) {
 			up = true;
-			down = false;
-		} else if (e.keyCode == keyLayout.down) {
-			up = false;
+		}
+		if (e.keyCode == keyLayout.down) {
 			down = true;
 		}
 	}
