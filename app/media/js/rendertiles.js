@@ -19,6 +19,16 @@ function RenderTiles(contextID,colors) {
 
 			ctx.fillStyle = tile.color.slice(0,-2)+remap(tile.life,100,0,1,0) + ")";
 	        ctx.fillRect(tile.x*(TILE_SIZE+MARGIN),tile.y*(TILE_SIZE+MARGIN),TILE_SIZE,TILE_SIZE);
+
+	        if (tile.life == 0) {
+		        ctx.fillStyle = "rgba(10, 10, 10, 0.8)";
+		        if (tile.topSurface != null && tile.topSurface.life != 0) {
+			        ctx.fillRect(tile.x*(TILE_SIZE+MARGIN),tile.y*(TILE_SIZE+MARGIN),TILE_SIZE,TILE_SIZE/8);
+		        }
+		        if (tile.leftSurface != null && tile.leftSurface.life != 0) {
+			        ctx.fillRect(tile.x*(TILE_SIZE+MARGIN),tile.y*(TILE_SIZE+MARGIN),TILE_SIZE/8,TILE_SIZE);
+		        }        	
+	        }
 		}
 
 	}
