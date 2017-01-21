@@ -5,7 +5,7 @@ function Surfaces(Length, Height, colorset) {
     for (var y = 0; y < Height; y++){
         for (var x = 0; x < Length; x++){
 
-            var life = 20;
+            var life = 0;
             if (y > 0 && y < Height-1 && x > 0 && x < Length-1) {
                 life = 100;
             }

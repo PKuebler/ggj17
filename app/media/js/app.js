@@ -26,6 +26,7 @@ function startNewGame() {
 	//var waves = WaveSurfaces(surfaces);
 
 	// Renderer
+	bgRenderer = RenderBG("bg",colorset);
 	renderer = RenderTiles("background",colorset);
 	waveRenderer = RenderTiles("waves",colorset);
 
@@ -35,6 +36,8 @@ function startNewGame() {
 	playerController.spawnPlayer();
 
 	newGameCountDown = TIME_BETWEEN_ROUNDS;
+
+	bgRenderer.drawTiles(surfaces.GetSurfaces());
 
 	isRun = true;
 }

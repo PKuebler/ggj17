@@ -24,14 +24,22 @@ var KEY_LAYOUT = [
 		right: 68,
 		up: 87,
 		down: 83,
-		action: 32
+		action: 32,
+		shotLeft: 70,
+		shotRight: 72,
+		shotUp: 84,
+		shotDown: 71
 	},
 	player_2 = { // arrows and .
 		left: 37,
 		right: 39,
 		up: 38,
 		down: 40,
-		action: 189
+		action: 189,
+		shotLeft: 75,
+		shotRight: 186,
+		shotUp: 79,
+		shotDown: 76
 	}
 ];
 
