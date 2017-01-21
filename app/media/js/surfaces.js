@@ -17,7 +17,8 @@ function Surfaces(Length, Height, colorset) {
                 bg: colorset.bg(),
                 life: life,
                 waves: [],
-                topSurface: ((y == 0)?null:surfaces[(y-1)*Length+x])
+                topSurface: ((y == 0)?null:surfaces[(y-1)*Length+x]),
+                leftSurface: ((x == 0)?null:surfaces[y*Length+x-1])
             };
 
             surfaces.push(surface);

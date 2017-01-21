@@ -73,7 +73,7 @@ function PlayerController(canvasID, waves, surfaces,color) {
 
 	function checkWaveHit(pos, player) {
 		var tile = surfaces.GetSurface(pos.x, pos.y);
-		if (tile == null || tile.life <= 20) {
+		if (tile == null || tile.life <= 0) {
 			if(!player.isPlayerDead()){
 				setDead(player, null);
 				return true;
