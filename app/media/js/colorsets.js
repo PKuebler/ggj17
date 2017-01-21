@@ -36,7 +36,7 @@ function ColorSets(){
 			}
 		},
 		{
-			p1 : "rgba(0, 0, 0, 1)",
+			p1 : "rgba(134, 153, 345, 1)",
 			p2 : "rgba(188, 187, 189, 1)",
 			tile : function() {
 				return "rgba("+(230+randomInt(range))+", "+(230+randomInt(range))+", "+(230+randomInt(range))+", 1)"

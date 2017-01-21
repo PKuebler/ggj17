@@ -30,7 +30,8 @@ function RenderTiles(contextID,colors) {
 	}
 
 	function drawWaves(tiles) {
-		var wavecol = colorset.wave.substr(0,18);
+		var wavecol = colorset.wave.slice(0, -2);
+
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 		for (var i = 0; i < tiles.length; i++) {

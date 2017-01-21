@@ -32,7 +32,6 @@ function Surfaces(Length, Height, colorset) {
     }
 
     function GetSurface(x, y) {
-        console.log(x,y,Length,surfaces[ (y * Length) + x ]);
         return surfaces[ (y * Length) + x ];
     }
 
