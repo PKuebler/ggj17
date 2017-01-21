@@ -19,7 +19,7 @@ function run(direction, pos, max, callback, i) {
 	pos.x += direction.x;
 	pos.y += direction.y;
 
-	callback(pos);
+	callback(pos, i);
 
 	i++;
 

@@ -1,7 +1,7 @@
 
 function WaveController(surefaces) {
 
-	function step(pos) {
+	function step(pos, i) {
 		if (pos.x < 0 || pos.y < 0 || pos.x > MAP_SIZE.x || pos.y > MAP_SIZE.y) {
 			// out of map
 			return;
@@ -11,7 +11,7 @@ function WaveController(surefaces) {
 		var sureface = surefaces.GetSurface(pos.x,pos.y);
 		if (sureface != null) {
 			sureface.waves.push({
-				delay: WAVE_ANIMATION.delay.startValue,
+				delay: WAVE_ANIMATION.delay.step*(-i),
 				fadeIn: null,
 				fadeOut: null
 			});

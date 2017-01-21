@@ -37,7 +37,7 @@ var PLAYER_COLORS = [
 
 var WAVE_ANIMATION = {
 	delay: { // start value muss kleiner sein als end value
-		step: 1,
+		step: 2,
 		startValue: 0,
 		endValue: 5
 	},
