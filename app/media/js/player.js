@@ -15,7 +15,7 @@ function Player(ctx, keyLayout, color, waves){
 	var up = false;
 	var down = false;
 
-	const playerAcceleration = 0.3;
+	const playerAcceleration = 0.6;
 	const friction = 0.92;
 
 	// Key Handling
@@ -56,7 +56,8 @@ function Player(ctx, keyLayout, color, waves){
 
 	// action Button
 	function actionButton(pos) {
-		waves.SpawnWave(pos.y, pos.x, pos.direction);
+		//waves.SpawnWave(pos.y, pos.x, pos.direction);
+		waves.run(pos.direction, pos, 10);
 	}
 
 	// Draw
@@ -85,8 +86,6 @@ function Player(ctx, keyLayout, color, waves){
 		velocity.y *= friction;
 	}
 
-	const playerMaxSpeed = 1.0;
-
 	function getPlayerTilePos() {
 		var direction = {x: 0, y: 0};
 		if (left)
@@ -99,7 +98,7 @@ function Player(ctx, keyLayout, color, waves){
 		else if (down)
 			direction.y = 1;
 
-		return {x: Math.floor(pos.x/TILE_SIZE), y: Math.floor(pos.y/TILE_SIZE), direction};
+		return {x: Math.floor(pos.x/(TILE_SIZE+MARGIN)), y: Math.floor(pos.y/(TILE_SIZE+MARGIN)), direction};
 	}
 
 	/* EVENT LISTENER */

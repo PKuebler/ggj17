@@ -6,8 +6,8 @@ function Surfaces(Length, Height) {
 
     var surfaces = [];
 
-    for (var x = 0; x < Length; x++){
-        for (var y = 0; y < Height; y++){
+    for (var y = 0; y < Height; y++){
+        for (var x = 0; x < Length; x++){
 
             var surface = {
                 x: x,
@@ -26,6 +26,7 @@ function Surfaces(Length, Height) {
     }
 
     function GetSurface(x, y) {
+        console.log(x,y,Length,surfaces[ (y * Length) + x ]);
         return surfaces[ (y * Length) + x ];
     }
 

@@ -1,12 +1,18 @@
+// Used Variables
+var width = window.innerWidth,
+    height = window.innerHeight-18;
+var devicePixelRatio = window.devicePixelRatio || 1;
 
 var TILE_SIZE = 32;
 var MARGIN = 2;
 var MAP_SIZE = {
-	x: 20,
-	y: 20
+	x: Math.floor(width/(TILE_SIZE+MARGIN)),
+	y: Math.floor(height/(TILE_SIZE+MARGIN))
+//	x: 20,
+//	y: 20
 };
 
-var PLAYER_WIDTH = 20;
+var PLAYER_WIDTH = TILE_SIZE/2;
 
 var KEY_LAYOUT = [
 	{ // awsd and space
@@ -28,3 +34,21 @@ var KEY_LAYOUT = [
 var PLAYER_COLORS = [
 	"#FF8000", "#AAF200"
 ];
+
+var WAVE_ANIMATION = {
+	delay: { // start value muss kleiner sein als end value
+		step: 1,
+		startValue: 0,
+		endValue: 5
+	},
+	fadeIn: { // start value muss kleiner sein als end value
+		step: 2,
+		startValue: 0,
+		endValue: 10
+	},
+	fadeOut: { // start value muss größer sein als end value
+		step: -1,
+		startValue: 10,
+		endValue: 0
+	}
+};

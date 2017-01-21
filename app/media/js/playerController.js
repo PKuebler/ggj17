@@ -8,8 +8,8 @@ function PlayerController(canvasID, waves) {
 
 	canvas.width = width;
 	canvas.height = height;
-	ctx.translate(width/2, 0);
-	ctx.rotate(45*Math.PI/180);
+//	ctx.translate(width/2, 0);
+//	ctx.rotate(45*Math.PI/180);
 
 	// add new player
 	function spawnPlayer() {

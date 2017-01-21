@@ -7,8 +7,8 @@ function RenderTiles(contextID) {
 	canvas.width = width;
 	canvas.height = height;
 
-	ctx.translate(width/2, 0);
-	ctx.rotate(45*Math.PI/180);
+//	ctx.translate(width/2, 0);
+//	ctx.rotate(45*Math.PI/180);
 
 	function drawTiles(tiles) {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -36,13 +36,19 @@ function RenderTiles(contextID) {
 
 			for (var j = 0; j < tile.waves.length; j++) {
 				var wave = tile.waves[j];
-				if (wave.start == 0) {
-					if (wave.end < 90) {
-						ctx.fillStyle = "rgba(98,38,109," + remap(wave.end*2, 0,80,0,1) + ")";
-					} else {
-						ctx.fillStyle = "rgba(98,38,109," + remap(wave.end*2, 80,0,1,0) + ")";
-					}					
+
+				if (wave.delay != null) {
+					// wait
+				} else if (wave.fadeIn != null) {
+
+					ctx.fillStyle = "rgba(98,38,109," + remap(wave.fadeIn, WAVE_ANIMATION.fadeIn.startValue,WAVE_ANIMATION.fadeIn.endValue,0,1) + ")";
 			        ctx.fillRect(tile.x*(TILE_SIZE+MARGIN),tile.y*(TILE_SIZE+MARGIN),TILE_SIZE,TILE_SIZE);
+
+				} else if (wave.fadeOut != null) {
+
+					ctx.fillStyle = "rgba(98,38,109," + remap(wave.fadeOut, WAVE_ANIMATION.fadeOut.startValue,WAVE_ANIMATION.fadeOut.endValue,1,0) + ")";
+			        ctx.fillRect(tile.x*(TILE_SIZE+MARGIN),tile.y*(TILE_SIZE+MARGIN),TILE_SIZE,TILE_SIZE);
+
 				}
 			}
 		}
