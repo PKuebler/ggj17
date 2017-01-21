@@ -19,7 +19,7 @@ function RenderTiles(contextID,colors) {
 			var tile = tiles[i];
 
 			if (tile.life > 50) {
-				ctx.fillStyle = colorset.tile;
+				ctx.fillStyle = tile.color;//colorset.tile;
 			} else {
 				ctx.fillStyle = "#62266d";			
 			}
