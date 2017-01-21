@@ -21,7 +21,7 @@ function RenderTiles(contextID,colors) {
 			if (tile.life > 50) {
 				ctx.fillStyle = tile.color;//colorset.tile;
 			} else {
-				ctx.fillStyle = "#62266d";			
+				ctx.fillStyle = tile.bg;			
 			}
 
 	        ctx.fillRect(tile.x*(TILE_SIZE+MARGIN),tile.y*(TILE_SIZE+MARGIN),TILE_SIZE,TILE_SIZE);

@@ -18,6 +18,7 @@ function Surfaces(Length, Height, colorset) {
                 x: x,
                 y: y,
                 color: colorset.tile(),
+                bg: colorset.bg(),
                 life: life,
                 waves: []
             };
