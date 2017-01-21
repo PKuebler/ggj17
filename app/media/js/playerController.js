@@ -10,10 +10,8 @@ function PlayerController(canvasID, waves, surfaces,color) {
 	canvas.width = width;
 	canvas.height = height;
 
-	var score = {
-	player1 : 0,
-	player2 : 0
-	};
+	var pointToPlayer = null;
+
 //	ctx.translate(width/2, 0);
 //	ctx.rotate(45*Math.PI/180);
 
@@ -38,16 +36,15 @@ function PlayerController(canvasID, waves, surfaces,color) {
 			var tile = surfaces.GetSurface(tilePos.x, tilePos.y);
 			if (tile == null || tile.life == 0) {
 				if(!players[i].isPlayerDead()){
-						didntDieAddScore(players[i]);
-						players[i].setDead();
-					}
+					setDead(players[i], null);
+				}
 			} else if (tile.waves.length > 0) {
-				if (tile.waves.filter(function(wave) {
+				var waves = tile.waves.filter(function(wave) {
 					return wave.playerID != players[i].playerID;
-				}).length > 0) {
+				});
+				if (waves.length > 0) {
 					if(!players[i].isPlayerDead()){
-						didntDieAddScore(players[i]);
-						players[i].setDead();
+						setDead(players[i], waves[0].playerID);
 					}
 				}
 			}
@@ -66,21 +63,25 @@ function PlayerController(canvasID, waves, surfaces,color) {
 	function isEnd() {
 		return players.filter(function(player) {
 			return player.isPlayerDead();
-		}).length == players.length-1;
+		}).length >= players.length-1;
 	}
 
-	function didntDieAddScore(playerobj){
-		//console.log(playerobj.playerID);
-		if(playerobj.playerID == 0){
-			score.player1 = 1;
-		}else{
-			score.player2 = 1;
+	function setDead(player, triggerPlayer) {
+		if (triggerPlayer == null) {
+			console.log((player.playerID+1)%players.length);
+			triggerPlayer = players[(player.playerID+1)%players.length];
 		}
+		pointToPlayer = triggerPlayer.playerID;
+		player.setDead();
+	}
+
+	function getPointsToPlayerID() {
+		return pointToPlayer;
 	}
 	return {
 		spawnPlayer: spawnPlayer,
 		update: update,
 		isEnd: isEnd,
-		score : score
+		getPointsToPlayerID : getPointsToPlayerID
 	}
 }

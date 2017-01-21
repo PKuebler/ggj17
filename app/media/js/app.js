@@ -9,7 +9,7 @@ var newGameTimer = null;
 var score = {
 	player1 : 0,
 	player2 : 0
-	};
+};
 var newGameCountDown = TIME_BETWEEN_ROUNDS;
 var font = Font("font");
 
@@ -48,31 +48,25 @@ function loop() {
 		waveRenderer.drawWaves(surfaces.GetSurfaces());
 		waves.UpdateWave();
 
-
-
-
-
-if (playerController.isEnd() && newGameTimer == null) {
-            // set timer
-            updateCountdown(newGameCountDown);
-            if (newGameCountDown == 0) {
-            	if(playerController.score.player1 == 1 && isRun){
+		if (playerController.isEnd() && newGameTimer == null) {
+            if (newGameCountDown == TIME_BETWEEN_ROUNDS) {
+            	if(playerController.getPointsToPlayerID() == 0){
 					score.player1++;
-					console.log("p1");
 				}else{
 					score.player2++;
-					console.log("p2");
 				}
+            }
+            // set timer
+            updateCountdown(newGameCountDown);
+            newGameCountDown--;
+            if (newGameCountDown == -1) {
                 startNewGame();
             } else {
                 newGameTimer = setTimeout(function() {
                     newGameTimer = null;
                 }, 1000);
             }
-           
-            newGameCountDown--;
         }
-
 	}
 	window.requestAnimFrame(loop);
 }
@@ -80,6 +74,8 @@ if (playerController.isEnd() && newGameTimer == null) {
 function updateCountdown(num) {
 	font.clear();
 	font.drawInt(num, Math.floor(MAP_SIZE.x/2)-2,Math.floor(MAP_SIZE.y/2)-3, "#333355");
+	font.drawInt(score.player1, Math.floor(MAP_SIZE.x/6)-2,Math.floor(MAP_SIZE.y/2)-3, "#333355");
+	font.drawInt(score.player2, Math.floor(MAP_SIZE.x/6*5),Math.floor(MAP_SIZE.y/2)-3, "#333355");
 }
 
 // start loop

@@ -94,7 +94,7 @@ function Player(id, ctx, keyLayout, color, waves){
 	// Draw the player & shadow of the Player
 	function drawPlayer(){
 		//shadow draw
-        ctx.fillStyle = "rgba(10, 10, 10, 0.4)";
+        ctx.fillStyle = "rgba(10, 10, 10, 0.1)";
 		ctx.beginPath();
 		ctx.moveTo(pos.x+playerSize.x, pos.y+playerSize.y);
 		ctx.lineTo(pos.x-5, pos.y+12);
