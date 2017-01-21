@@ -4,8 +4,8 @@ function Player(id, ctx, keyLayout, color, waves){
 	var playercolor = color;
 
 	var playerSize = {
-		x: TILE_SIZE/4,
-		y: TILE_SIZE/2
+		x: TILE_SIZE/3,
+		y: TILE_SIZE/1.5
 	};
 
 	var startX = MAP_SIZE.x/2/2;
