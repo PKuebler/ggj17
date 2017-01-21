@@ -17,10 +17,12 @@ function PlayerController(canvasID, waves) {
 			return console.log("Player "+players.length+" need a Key Layout.");
 		}
 
-		players.push(Player(ctx, KEY_LAYOUT[players.length], waves));
+		players.push(Player(ctx, KEY_LAYOUT[players.length], PLAYER_COLORS[players.length], waves));
 	}
 
 	function update() {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 		for (var i = 0; i < players.length; i++) {
 			players[i].updatePlayer();
 			players[i].drawPlayer();

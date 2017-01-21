@@ -24,3 +24,7 @@ var KEY_LAYOUT = [
 		action: 190
 	}
 ];
+
+var PLAYER_COLORS = [
+	"#FF8000", "#AAF200"
+];

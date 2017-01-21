@@ -1,6 +1,6 @@
 /* DER PLAYER AYER AYER AYER YEAH */
 
-function Player(ctx, keyLayout, waves){
+function Player(ctx, keyLayout, color, waves){
 	var pos = {
 		x: 0,
 		y: 0
@@ -61,10 +61,7 @@ function Player(ctx, keyLayout, waves){
 
 	// Draw
 	function drawPlayer(){
-		// ToDo: Clear by controller
-		ctx.clearRect(pos.x-50,pos.y-50,100,100);
-
-		ctx.fillStyle = "#DD3333";
+		ctx.fillStyle = color;
 		ctx.beginPath();
 		ctx.arc(pos.x,pos.y,PLAYER_WIDTH,0, 2 * Math.PI, false);
 		ctx.closePath();
