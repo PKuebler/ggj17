@@ -8,7 +8,7 @@ var renderer = RenderTiles("background");
 var waveRenderer = RenderTiles("waves");
 
 // PlayerController
-var playerController = PlayerController("player", waves);
+var playerController = PlayerController("player", waves, surfaces);
 playerController.spawnPlayer();
 
 // loop

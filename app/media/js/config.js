@@ -3,6 +3,8 @@ var width = window.innerWidth,
     height = window.innerHeight-18;
 var devicePixelRatio = window.devicePixelRatio || 1;
 
+var WAVE_LENGTH = 6;
+
 var TILE_SIZE = 32;
 var MARGIN = 2;
 var MAP_SIZE = {
@@ -37,17 +39,17 @@ var PLAYER_COLORS = [
 
 var WAVE_ANIMATION = {
 	delay: { // start value muss kleiner sein als end value
-		step: 1,
+		step: 2,
 		startValue: 0,
 		endValue: 5
 	},
 	fadeIn: { // start value muss kleiner sein als end value
-		step: 2,
+		step: 1.5,
 		startValue: 0,
 		endValue: 10
 	},
 	fadeOut: { // start value muss größer sein als end value
-		step: -1,
+		step: -	0.5,
 		startValue: 10,
 		endValue: 0
 	}

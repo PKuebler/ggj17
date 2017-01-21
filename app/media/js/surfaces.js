@@ -9,11 +9,16 @@ function Surfaces(Length, Height) {
     for (var y = 0; y < Height; y++){
         for (var x = 0; x < Length; x++){
 
+            var life = 0;
+            if (y > 0 && y < Height-1 && x > 0 && x < Length-1) {
+                life = 100;
+            }
+
             var surface = {
                 x: x,
                 y: y,
                 color: '#776655',
-                life: 100,
+                life: life,
                 waves: []
             };
 

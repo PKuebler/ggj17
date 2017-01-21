@@ -1,9 +1,9 @@
 2/* DER PLAYER AYER AYER AYER YEAH */
 
-function Player(ctx, keyLayout, color, waves){
+function Player(id, ctx, keyLayout, color, waves){
 	var pos = {
-		x: 0,
-		y: 0
+		x: 10*TILE_SIZE,
+		y: 10*TILE_SIZE
 	};
 	var velocity = {
 		x: 0.0,
@@ -15,11 +15,20 @@ function Player(ctx, keyLayout, color, waves){
 	var up = false;
 	var down = false;
 
+	var isDead = false;
+
 	const playerAcceleration = 0.6;
 	const friction = 0.92;
 
+	function setDead() {
+		isDead = true;
+	}
+
 	// Key Handling
 	function keyDownHandler(e) {
+		if (isDead)
+			return;
+
 		if (e.keyCode == keyLayout.left) {
 			left = true;
 			right = false;
@@ -37,6 +46,9 @@ function Player(ctx, keyLayout, color, waves){
 	}
 
 	function keyUpHandler(e){
+		if (isDead)
+			return;
+
 		if(e.keyCode == keyLayout.left){
 			left = false;
 		}
@@ -57,7 +69,7 @@ function Player(ctx, keyLayout, color, waves){
 	// action Button
 	function actionButton(pos) {
 		//waves.SpawnWave(pos.y, pos.x, pos.direction);
-		waves.run(pos.direction, pos, 10);
+		waves.run(pos.direction, pos, WAVE_LENGTH, id);
 	}
 
 	// Draw the player & shadow of the Player
@@ -73,7 +85,11 @@ function Player(ctx, keyLayout, color, waves){
 		ctx.fill();
 		//player draw
 		ctx.fillStyle = color;
-        ctx.fillRect(pos.x,pos.y,TILE_SIZE/4,TILE_SIZE/2);
+		if (isDead) {
+	        ctx.fillRect(pos.x,pos.y,TILE_SIZE/2,TILE_SIZE/4);
+	    } else {
+	        ctx.fillRect(pos.x,pos.y,TILE_SIZE/4,TILE_SIZE/2);	    	
+	    }
 //		ctx.beginPath();
 //		ctx.arc(pos.x,pos.y,PLAYER_WIDTH,0, 2 * Math.PI, false);
 //		ctx.closePath();
@@ -82,6 +98,9 @@ function Player(ctx, keyLayout, color, waves){
 
 	// Update
 	function updatePlayer() {
+		if (isDead)
+			return;
+
 		if (left)
 			velocity.x-=playerAcceleration;
 		else if (right)
@@ -109,7 +128,7 @@ function Player(ctx, keyLayout, color, waves){
 		else if (down)
 			direction.y = 1;
 
-		return {x: Math.floor(pos.x/(TILE_SIZE+MARGIN)), y: Math.floor(pos.y/(TILE_SIZE+MARGIN)), direction};
+		return {x: Math.floor(pos.x/(TILE_SIZE+MARGIN)), y: Math.floor((pos.y+TILE_SIZE/2)/(TILE_SIZE+MARGIN)), direction};
 	}
 
 	/* EVENT LISTENER */
@@ -119,7 +138,9 @@ function Player(ctx, keyLayout, color, waves){
 	return{
 		drawPlayer : drawPlayer,
 		updatePlayer : updatePlayer,
-		getPlayerTilePos: getPlayerTilePos
+		getPlayerTilePos: getPlayerTilePos,
+		setDead: setDead,
+		playerID: id
 	}
 
 
