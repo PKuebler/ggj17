@@ -12,7 +12,7 @@ var score = {
 };
 var newGameCountDown = TIME_BETWEEN_ROUNDS;
 var font = Font("font");
-var audio = new Audio('media/Gamesound64kbs.mp3'); //gamesound wird hier geladen
+var soundInstance = Sound();
 
 function startNewGame() {
 	isRun = false;
@@ -23,7 +23,7 @@ function startNewGame() {
 	colorset = ColorSets().randomColorSet();
 
 	//hier wird der Spielsound abgespielt
-	audio.play();
+	soundInstance.playGameSong();
 
 	surfaces = Surfaces(MAP_SIZE.x, MAP_SIZE.y, colorset);
 	waves = WaveController(surfaces);
