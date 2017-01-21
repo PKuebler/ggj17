@@ -1,99 +1,94 @@
 /* DER PLAYER AYER AYER AYER YEAH */
 
-
-
-function Player(handlerAttack){
-	var canvas = document.getElementById('player');
-	var ctx = canvas.getContext("2d");
-
-	canvas.width = width;
-	canvas.height = height;
-	ctx.translate(width/2, 0);
-	ctx.rotate(45*Math.PI/180);
-
-	const playerWidth = 20;
-	var playerXPos = 0;
-	var playerYPos = 0;
-	var velX = 0.0;
-	var velY = 0.0;
-	var playerVelocity = 0.0;
-	const playerMaxSpeed = 1.0;
-	const playerAcceleration = 0.3;
-	const friction = 0.92;
+function Player(ctx, keyLayout, waves){
+	var pos = {
+		x: 0,
+		y: 0
+	};
+	var velocity = {
+		x: 0.0,
+		y: 0.0
+	};
 
 	var left = false;
 	var right = false;
 	var up = false;
 	var down = false;
 
-	function keyDownHandler(e){
-		if(e.keyCode == 65){
+	const playerAcceleration = 0.3;
+	const friction = 0.92;
+
+	// Key Handling
+	function keyDownHandler(e) {
+		if (e.keyCode == keyLayout.left) {
 			left = true;
-		}
-		if(e.keyCode == 68){
+			right = false;
+		} else if (e.keyCode == keyLayout.right) {
+			left = false;
 			right = true;
 		}
-		if(e.keyCode == 87){
+		if (e.keyCode == keyLayout.up) {
 			up = true;
-		}
-		if(e.keyCode == 83){
+			down = false;
+		} else if (e.keyCode == keyLayout.down) {
+			up = false;
 			down = true;
 		}
 	}
 
 	function keyUpHandler(e){
-		if(e.keyCode == 65){
-			
+		if(e.keyCode == keyLayout.left){
 			left = false;
 		}
-		if(e.keyCode == 68){
-		
+		if(e.keyCode == keyLayout.right){
 			right = false;
 		}
-		if(e.keyCode == 87){
-			
+		if(e.keyCode == keyLayout.up){
 			up = false;
 		}
-		if(e.keyCode == 83){
-			
+		if(e.keyCode == keyLayout.down){
 			down = false;
 		}
-		if(e.keyCode == 32) {
-			handlerAttack(getPlayerTilePos());
+		if(e.keyCode == keyLayout.action) {
+			actionButton(getPlayerTilePos());
 		}
 	}
 
+	// action Button
+	function actionButton(pos) {
+		waves.SpawnWave(pos.y, pos.x, pos.direction);
+	}
 
+	// Draw
 	function drawPlayer(){
-		ctx.clearRect(playerXPos-50,playerYPos-50,100,100);
+		// ToDo: Clear by controller
+		ctx.clearRect(pos.x-50,pos.y-50,100,100);
 
 		ctx.fillStyle = "#DD3333";
 		ctx.beginPath();
-		ctx.arc(playerXPos,playerYPos,playerWidth,0, 2 * Math.PI, false);
+		ctx.arc(pos.x,pos.y,PLAYER_WIDTH,0, 2 * Math.PI, false);
 		ctx.closePath();
 		ctx.fill();
 	}
 
-	 function updatePlayer(){
+	// Update
+	function updatePlayer() {
+		if (left)
+			velocity.x-=playerAcceleration;
+		else if (right)
+			velocity.x+=playerAcceleration;
+		if (up)
+			velocity.y-=playerAcceleration;
+		else if (down)
+			velocity.y+=playerAcceleration;
 
-	 	if(left){
-			velX-=playerAcceleration;
-	 	}
-	 	if(right){
-	 		velX+=playerAcceleration;
-	 	}
-	 	if(up){
-	 		velY-=playerAcceleration;
-	 	}
-	 	if(down){
-	 		velY+=playerAcceleration;
-	 	}
-	 	
-	 	playerXPos+= velX;
-	 	playerYPos += velY;
- 		velX *= friction;
-	 	velY *= friction;
+		pos.x += velocity.x;
+		pos.y += velocity.y;
+		velocity.x *= friction;
+		velocity.y *= friction;
 	}
+
+	const playerMaxSpeed = 1.0;
 
 	function getPlayerTilePos() {
 		var direction = {x: 0, y: 0};
@@ -107,19 +102,16 @@ function Player(handlerAttack){
 		else if (down)
 			direction.y = 1;
 
-		return {x: Math.floor(playerXPos/TILE_SIZE), y: Math.floor(playerYPos/TILE_SIZE), direction};
+		return {x: Math.floor(pos.x/TILE_SIZE), y: Math.floor(pos.y/TILE_SIZE), direction};
 	}
-
-
 
 	/* EVENT LISTENER */
 	document.addEventListener("keydown", keyDownHandler, false);
 	document.addEventListener("keyup", keyUpHandler, false);
+
 	return{
 		drawPlayer : drawPlayer,
 		updatePlayer : updatePlayer,
-		playerXPos : playerXPos,
-		playerYPos : playerYPos,
 		getPlayerTilePos: getPlayerTilePos
 	}
 
