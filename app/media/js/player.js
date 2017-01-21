@@ -9,10 +9,16 @@ function Player(id, ctx, keyLayout, color, waves){
 		y: TILE_SIZE/2
 	};
 
+	var startX = MAP_SIZE.x/2/2;
+	if (id > 0) {
+		startX = startX*3;
+	}
+
 	var pos = {
-		x: 10*TILE_SIZE,
-		y: 10*TILE_SIZE
+		x: (startX-3+Math.floor(1 + Math.random()*((6-1))))*TILE_SIZE,
+		y: ((MAP_SIZE.y/2)-3+Math.floor(1 + Math.random()*((6-1))))*TILE_SIZE
 	};
+
 	var velocity = {
 		x: 0.0,
 		y: 0.0
