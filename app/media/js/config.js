@@ -3,6 +3,8 @@ var width = window.innerWidth,
     height = window.innerHeight-18;
 var devicePixelRatio = window.devicePixelRatio || 1;
 
+var WAVE_LENGTH = 6;
+
 var TILE_SIZE = 32;
 var MARGIN = 2;
 var MAP_SIZE = {

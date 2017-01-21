@@ -69,7 +69,7 @@ function Player(ctx, keyLayout, color, waves){
 	// action Button
 	function actionButton(pos) {
 		//waves.SpawnWave(pos.y, pos.x, pos.direction);
-		waves.run(pos.direction, pos, 10);
+		waves.run(pos.direction, pos, WAVE_LENGTH);
 	}
 
 	// Draw
