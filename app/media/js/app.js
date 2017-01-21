@@ -40,6 +40,10 @@ function startNewGame() {
 	bgRenderer.drawTiles(surfaces.GetSurfaces());
 
 	isRun = true;
+
+	//hier wird der Spielsound in eine Variable geladen und dann abgespielt
+	var audio = new Audio('media/idkright64Gamesoundkbs.mp3');
+	audio.play();
 }
 
 // loop
