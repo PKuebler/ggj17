@@ -1,4 +1,3 @@
-
 function PlayerController(canvasID, waves, surfaces,color) {
 	var colorset = color;
 	var players = [];

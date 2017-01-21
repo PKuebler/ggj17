@@ -1,7 +1,3 @@
-/**
- * Created by adrianseehawer on 20.01.17.
- */
-
 function Surfaces(Length, Height, colorset) {
 
     var surfaces = [];

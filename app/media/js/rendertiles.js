@@ -1,4 +1,3 @@
-
 function RenderTiles(contextID,colors) {
 	var colorset = colors;
 	// Set Canvas
