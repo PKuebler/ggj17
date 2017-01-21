@@ -6,9 +6,14 @@ var waveRenderer = null;
 var playerController = null;
 var isRun = false;
 var newGameTimer = null;
+var newGameCountDown = TIME_BETWEEN_ROUNDS;
+var font = Font("font");
 
 function startNewGame() {
 	isRun = false;
+
+	font.clear();
+
 	// Init
 	colorset = ColorSets().randomColorSet();
 
@@ -25,6 +30,8 @@ function startNewGame() {
 	playerController.spawnPlayer();
 	playerController.spawnPlayer();
 
+	newGameCountDown = TIME_BETWEEN_ROUNDS;
+
 	isRun = true;
 }
 
@@ -37,16 +44,26 @@ function loop() {
 		waveRenderer.drawWaves(surfaces.GetSurfaces());
 		waves.UpdateWave();
 
-		if (playerController.isEnd() && newGameTimer == null) {			
-			newGameTimer = setTimeout(function() {
-				newGameTimer = null;
-
+		if (playerController.isEnd() && newGameTimer == null) {
+			// set timer
+			updateCountdown(newGameCountDown);
+			if (newGameCountDown == 0) {
 				startNewGame();
-			}, TIME_BETWEEN_ROUNDS);
+			} else {
+				newGameTimer = setTimeout(function() {
+					newGameTimer = null;
+				}, 1000);
+			}
+			
+			newGameCountDown--;
 		}
 	}
 	window.requestAnimFrame(loop);
+}
 
+function updateCountdown(num) {
+	font.clear();
+	font.drawInt(num, Math.floor(MAP_SIZE.x/2)-2,Math.floor(MAP_SIZE.y/2)-3, "#333355");
 }
 
 // start loop
