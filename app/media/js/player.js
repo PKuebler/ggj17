@@ -1,6 +1,6 @@
 /* DER PLAYER AYER AYER AYER YEAH */
 
-function Player(ctx, keyLayout, color, waves){
+function Player(id, ctx, keyLayout, color, waves){
 	var pos = {
 		x: 10*TILE_SIZE,
 		y: 10*TILE_SIZE
@@ -69,7 +69,7 @@ function Player(ctx, keyLayout, color, waves){
 	// action Button
 	function actionButton(pos) {
 		//waves.SpawnWave(pos.y, pos.x, pos.direction);
-		waves.run(pos.direction, pos, WAVE_LENGTH);
+		waves.run(pos.direction, pos, WAVE_LENGTH, id);
 	}
 
 	// Draw

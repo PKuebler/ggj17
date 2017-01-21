@@ -17,7 +17,7 @@ function PlayerController(canvasID, waves, surfaces) {
 			return console.log("Player "+players.length+" need a Key Layout.");
 		}
 
-		players.push(Player(ctx, KEY_LAYOUT[players.length], PLAYER_COLORS[players.length], waves));
+		players.push(Player(players.length, ctx, KEY_LAYOUT[players.length], PLAYER_COLORS[players.length], waves));
 	}
 
 	function update() {
@@ -32,6 +32,9 @@ function PlayerController(canvasID, waves, surfaces) {
 			var tile = surfaces.GetSurface(tilePos.x, tilePos.y);
 			if (tile == null || tile.life == 0) {
 				players[i].setDead();
+			} else if (tile.waves.length > 0) {
+
+//				players[i].
 			}
 		}
 	}

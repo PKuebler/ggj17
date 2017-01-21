@@ -11,7 +11,7 @@ function remap(value, low1, high1, low2, high2) {
 }
 
 // direction, start position, wie oft, funktion bei jedem step ausführen, i = 0
-function run(direction, pos, max, callback, i) {
+function run(direction, pos, max, callback, playerID, i) {
 	if (i == null) {
 		i = 0;
 	}
@@ -19,11 +19,11 @@ function run(direction, pos, max, callback, i) {
 	pos.x += direction.x;
 	pos.y += direction.y;
 
-	callback(pos, i);
+	callback(pos, i, playerID);
 
 	i++;
 
 	if (i < max) {
-		run(direction, pos, max, callback, i);
+		run(direction, pos, max, callback, playerID, i);
 	}
 }

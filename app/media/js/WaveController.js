@@ -1,7 +1,7 @@
 
 function WaveController(surefaces) {
 
-	function step(pos, i) {
+	function step(pos, i, playerID) {
 		if (pos.x < 0 || pos.y < 0 || pos.x > MAP_SIZE.x || pos.y > MAP_SIZE.y) {
 			// out of map
 			return;
@@ -13,7 +13,8 @@ function WaveController(surefaces) {
 			sureface.waves.push({
 				delay: WAVE_ANIMATION.delay.step*(-i),
 				fadeIn: null,
-				fadeOut: null
+				fadeOut: null,
+				playerID: playerID
 			});
 		}
 	}
@@ -55,8 +56,8 @@ function WaveController(surefaces) {
 
 	return {
 		UpdateWave: UpdateWave,
-		run: function(direction, pos, i) {
-			run(direction, pos, i, step);
+		run: function(direction, pos, i, playerID) {
+			run(direction, pos, i, step, playerID);
 		}
 	}
 }
