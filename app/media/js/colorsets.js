@@ -36,12 +36,48 @@ function ColorSets(){
 			}
 		},
 		{
+			p1 : "rgba(173, 52, 62, 1)",
+			p2 : "rgba(71, 71, 71, 1)",
+			tile : function() {
+				return "rgba("+(235+randomInt(range))+", "+(160+randomInt(range))+", "+(35+randomInt(range))+", 1)"
+			},
+			wave : "rgba(7, 133, 124, 1)",
+			bg : function() {
+				return "rgba("+(15+randomInt(range))+", "+(15+randomInt(range))+", "+(15+randomInt(range))+", 1)"				
+			}
+		},
+		{
+			p1 : "rgba(36, 123, 160, 1)",
+			p2 : "rgba(243, 255, 189, 1)",
+			tile : function() {
+				return "rgba("+(235+randomInt(range))+", "+(160+randomInt(range))+", "+(170+randomInt(range))+", 1)"
+			},
+			wave : "rgba(178, 219, 191, 1)",
+			bg : function() {
+				return "rgba("+(230+randomInt(range))+", "+(10+randomInt(range))+", "+(75+randomInt(range))+", 1)"				
+			}
+		},
+
+		{
+			p1 : "rgba(237, 37, 78, 1)",
+			p2 : "rgba(76, 41, 110, 1)",
+			tile : function() {
+				return "rgba("+(225+randomInt(range))+", "+(200+randomInt(range))+", "+(80+randomInt(range))+", 1)"
+			},
+			wave : "rgba(194, 234, 189, 1)",
+			bg : function() {
+				return "rgba("+(90+randomInt(range))+", "+(190+randomInt(range))+", "+(5+randomInt(range))+", 1)"				
+			}
+		},
+
+
+		{
 			p1 : "rgba(134, 153, 345, 1)",
 			p2 : "rgba(188, 187, 189, 1)",
 			tile : function() {
 				return "rgba("+(230+randomInt(range))+", "+(230+randomInt(range))+", "+(230+randomInt(range))+", 1)"
 			},
-			wave : "rgba(160, 219, 251, 1)",
+			wave : "rgba(172, 224, 216, 1)",
 			bg : function() {
 				return "rgba("+(30+randomInt(range))+", "+(222+randomInt(range))+", "+(222+randomInt(range))+", 1)"				
 			}
