@@ -31,6 +31,9 @@ function Player(id, ctx, keyLayout, color, waves){
 	function setDead() {
 		isDead = true;
 	}
+	function isPlayerDead() {
+		return isDead;
+	}
 
 	// Key Handling
 	function keyDownHandler(e) {
@@ -143,6 +146,7 @@ function Player(id, ctx, keyLayout, color, waves){
 		updatePlayer : updatePlayer,
 		getPlayerTilePos: getPlayerTilePos,
 		setDead: setDead,
+		isPlayerDead: isPlayerDead,
 		playerID: id
 	}
 

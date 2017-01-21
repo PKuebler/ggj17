@@ -52,8 +52,15 @@ function PlayerController(canvasID, waves, surfaces,color) {
 		}
 	}
 
+	function isEnd() {
+		return players.filter(function(player) {
+			return player.isPlayerDead();
+		}).length == players.length-1;
+	}
+
 	return {
 		spawnPlayer: spawnPlayer,
-		update: update
+		update: update,
+		isEnd: isEnd
 	}
 }

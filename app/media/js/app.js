@@ -1,30 +1,54 @@
-// Init
-var colorset = ColorSets().randomColorSet();
+var colorset = null;
+var surfaces = null;
+var waves = null;
+var renderer = null;
+var waveRenderer = null;
+var playerController = null;
+var isRun = false;
+var newGameTimer = null;
 
-var surfaces = Surfaces(MAP_SIZE.x, MAP_SIZE.y, colorset);
-var waves = WaveController(surfaces);
-//var waves = WaveSurfaces(surfaces);
+function startNewGame() {
+	isRun = false;
+	// Init
+	colorset = ColorSets().randomColorSet();
 
-// Renderer
-var renderer = RenderTiles("background",colorset);
-var waveRenderer = RenderTiles("waves",colorset);
+	surfaces = Surfaces(MAP_SIZE.x, MAP_SIZE.y, colorset);
+	waves = WaveController(surfaces);
+	//var waves = WaveSurfaces(surfaces);
 
-// PlayerController
-var playerController = PlayerController("player", waves,surfaces,colorset);
-playerController.spawnPlayer();
-playerController.spawnPlayer();
+	// Renderer
+	renderer = RenderTiles("background",colorset);
+	waveRenderer = RenderTiles("waves",colorset);
+
+	// PlayerController
+	playerController = PlayerController("player", waves,surfaces,colorset);
+	playerController.spawnPlayer();
+	playerController.spawnPlayer();
+
+	isRun = true;
+}
 
 // loop
 function loop() {
-	// render if update
-	playerController.update();
+	if (isRun) {
+		playerController.update();
 
-	renderer.drawTiles(surfaces.GetSurfaces());
-	waveRenderer.drawWaves(surfaces.GetSurfaces());
-	waves.UpdateWave();
+		renderer.drawTiles(surfaces.GetSurfaces());
+		waveRenderer.drawWaves(surfaces.GetSurfaces());
+		waves.UpdateWave();
+
+		if (playerController.isEnd() && newGameTimer == null) {			
+			newGameTimer = setTimeout(function() {
+				newGameTimer = null;
+
+				startNewGame();
+			}, TIME_BETWEEN_ROUNDS);
+		}
+	}
 	window.requestAnimFrame(loop);
 
 }
 
 // start loop
 loop();
+startNewGame();
