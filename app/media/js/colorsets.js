@@ -53,9 +53,7 @@ function ColorSets(){
 	}
 	
 	function randomColorSet(){
-		var rndm = Math.floor(1 + Math.random()*((COLORSETS.length-1)));
-		console.log(rndm);
-		return COLORSETS[rndm];
+		return COLORSETS[Math.floor(1 + Math.random()*((COLORSETS.length-1)))];
 	}
 	return{
 		randomColorSet : randomColorSet
