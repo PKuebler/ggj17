@@ -74,13 +74,13 @@ function PlayerController(canvasID, waves, surfaces,color) {
 
 	function checkWaveHit(pos, player) {
 		var tile = surfaces.GetSurface(pos.x, pos.y);
-		if (tile == null || tile.life == 0) {
+		if (tile == null || tile.life == 20) {
 			if(!player.isPlayerDead()){
 				setDead(player, null);
 				return true;
 			}
 		}
-		if (tile.waves.length > 0) {
+		if (tile != null && tile.waves.length > 0) {
 			var waves = tile.waves.filter(function(wave) {
 				return wave.playerID != player.playerID;
 			});

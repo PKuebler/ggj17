@@ -10,6 +10,7 @@ function WaveController(surefaces) {
 		// get sureface
 		var sureface = surefaces.GetSurface(pos.x,pos.y);
 		if (sureface != null) {
+			surefaces.SetLife(pos.x,pos.y,sureface.life-30);
 			sureface.waves.push({
 				delay: WAVE_ANIMATION.delay.step*(-i),
 				fadeIn: null,

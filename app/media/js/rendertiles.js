@@ -18,8 +18,10 @@ function RenderTiles(contextID,colors) {
 		for (var i = 0; i < tiles.length; i++) {
 			var tile = tiles[i];
 
-			if (tile.life > 50) {
-				ctx.fillStyle = tile.color;//colorset.tile;
+			if (tile.life < 100) {
+				var wavecol = tile.bg.slice(0, -2);
+
+				ctx.fillStyle = wavecol + remap(tile.life+20, 120,20,1,0) + ")";
 			} else {
 				ctx.fillStyle = tile.bg;			
 			}

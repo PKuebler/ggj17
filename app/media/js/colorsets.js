@@ -1,5 +1,5 @@
 function ColorSets(){
-	var range = 20;
+	var range = 30;
 
 	var COLORSETS = [
 		{
