@@ -70,7 +70,7 @@ function PlayerController(canvasID, waves, surfaces,color) {
 	}
 
 	function didntDieAddScore(playerobj){
-		console.log(playerobj.playerID);
+		//console.log(playerobj.playerID);
 		if(playerobj.playerID == 0){
 			score.player1 = 1;
 		}else{

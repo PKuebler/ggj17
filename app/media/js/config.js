@@ -14,7 +14,7 @@ var MAP_SIZE = {
 //	y: 20
 };
 
-var TIME_BETWEEN_ROUNDS = 3000; // milli
+var TIME_BETWEEN_ROUNDS = 5; // sec
 
 var PLAYER_WIDTH = TILE_SIZE/2;
 
