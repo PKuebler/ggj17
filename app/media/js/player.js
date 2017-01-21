@@ -1,4 +1,4 @@
-/* DER PLAYER AYER AYER AYER YEAH */
+2/* DER PLAYER AYER AYER AYER YEAH */
 
 function Player(ctx, keyLayout, color, waves){
 	var pos = {
@@ -60,11 +60,20 @@ function Player(ctx, keyLayout, color, waves){
 		waves.run(pos.direction, pos, 10);
 	}
 
-	// Draw
+	// Draw the player & shadow of the Player
 	function drawPlayer(){
+		//shadow draw
+        ctx.fillStyle = "rgba(10, 10, 10, 0.8)";
+		ctx.beginPath();
+		ctx.moveTo(pos.x+TILE_SIZE/4, pos.y+TILE_SIZE/2);
+		ctx.lineTo(pos.x-5, pos.y+12);
+		ctx.lineTo(pos.x-20, pos.y-10);
+		ctx.lineTo(pos.x, pos.y-15);
+		ctx.closePath();
+		ctx.fill();
+		//player draw
 		ctx.fillStyle = color;
         ctx.fillRect(pos.x,pos.y,TILE_SIZE/4,TILE_SIZE/2);
-
 //		ctx.beginPath();
 //		ctx.arc(pos.x,pos.y,PLAYER_WIDTH,0, 2 * Math.PI, false);
 //		ctx.closePath();
