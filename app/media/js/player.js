@@ -1,4 +1,4 @@
-2/* DER PLAYER AYER AYER AYER YEAH */
+/* DER PLAYER AYER AYER AYER YEAH */
 
 
 function Player(id, ctx, keyLayout, color, waves){

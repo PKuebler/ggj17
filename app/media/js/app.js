@@ -6,6 +6,10 @@ var waveRenderer = null;
 var playerController = null;
 var isRun = false;
 var newGameTimer = null;
+var score = {
+	player1 : 0,
+	player2 : 0
+	};
 var newGameCountDown = TIME_BETWEEN_ROUNDS;
 var font = Font("font");
 
@@ -44,19 +48,31 @@ function loop() {
 		waveRenderer.drawWaves(surfaces.GetSurfaces());
 		waves.UpdateWave();
 
-		if (playerController.isEnd() && newGameTimer == null) {
-			// set timer
-			updateCountdown(newGameCountDown);
-			if (newGameCountDown == 0) {
-				startNewGame();
-			} else {
-				newGameTimer = setTimeout(function() {
-					newGameTimer = null;
-				}, 1000);
-			}
-			
-			newGameCountDown--;
-		}
+
+
+
+
+if (playerController.isEnd() && newGameTimer == null) {
+            // set timer
+            updateCountdown(newGameCountDown);
+            if (newGameCountDown == 0) {
+            	if(playerController.score.player1 == 1 && isRun){
+					score.player1++;
+					console.log("p1");
+				}else{
+					score.player2++;
+					console.log("p2");
+				}
+                startNewGame();
+            } else {
+                newGameTimer = setTimeout(function() {
+                    newGameTimer = null;
+                }, 1000);
+            }
+           
+            newGameCountDown--;
+        }
+
 	}
 	window.requestAnimFrame(loop);
 }

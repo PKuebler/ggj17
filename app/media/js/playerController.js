@@ -9,6 +9,11 @@ function PlayerController(canvasID, waves, surfaces,color) {
 
 	canvas.width = width;
 	canvas.height = height;
+
+	var score = {
+	player1 : 0,
+	player2 : 0
+	};
 //	ctx.translate(width/2, 0);
 //	ctx.rotate(45*Math.PI/180);
 
@@ -32,12 +37,18 @@ function PlayerController(canvasID, waves, surfaces,color) {
 			var tilePos = players[i].getPlayerTilePos();
 			var tile = surfaces.GetSurface(tilePos.x, tilePos.y);
 			if (tile == null || tile.life == 0) {
-				players[i].setDead();
+				if(!players[i].isPlayerDead()){
+						didntDieAddScore(players[i]);
+						players[i].setDead();
+					}
 			} else if (tile.waves.length > 0) {
 				if (tile.waves.filter(function(wave) {
 					return wave.playerID != players[i].playerID;
 				}).length > 0) {
-					players[i].setDead();
+					if(!players[i].isPlayerDead()){
+						didntDieAddScore(players[i]);
+						players[i].setDead();
+					}
 				}
 			}
 		}
@@ -47,7 +58,7 @@ function PlayerController(canvasID, waves, surfaces,color) {
 		if(players.length == 0){
 			return colorset.p1;
 		}
-		if(players.length==1){
+		if(players.length == 1){
 			return colorset.p2;
 		}
 	}
@@ -58,9 +69,18 @@ function PlayerController(canvasID, waves, surfaces,color) {
 		}).length == players.length-1;
 	}
 
+	function didntDieAddScore(playerobj){
+		//console.log(playerobj.playerID);
+		if(playerobj.playerID == 0){
+			score.player1 = 1;
+		}else{
+			score.player2 = 1;
+		}
+	}
 	return {
 		spawnPlayer: spawnPlayer,
 		update: update,
-		isEnd: isEnd
+		isEnd: isEnd,
+		score : score
 	}
 }
