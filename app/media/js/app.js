@@ -12,7 +12,7 @@ var score = {
 };
 var newGameCountDown = TIME_BETWEEN_ROUNDS;
 var font = Font("font");
-var audio = new Audio('media/idkright64Gamesoundkbs.mp3'); //gamesound wird hier geladen
+var audio = new Audio('media/Gamesound64kbs.mp3'); //gamesound wird hier geladen
 
 function startNewGame() {
 	isRun = false;
