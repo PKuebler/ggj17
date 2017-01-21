@@ -63,10 +63,12 @@ function Player(ctx, keyLayout, color, waves){
 	// Draw
 	function drawPlayer(){
 		ctx.fillStyle = color;
-		ctx.beginPath();
-		ctx.arc(pos.x,pos.y,PLAYER_WIDTH,0, 2 * Math.PI, false);
-		ctx.closePath();
-		ctx.fill();
+        ctx.fillRect(pos.x,pos.y,TILE_SIZE/4,TILE_SIZE/2);
+
+//		ctx.beginPath();
+//		ctx.arc(pos.x,pos.y,PLAYER_WIDTH,0, 2 * Math.PI, false);
+//		ctx.closePath();
+//		ctx.fill();
 	}
 
 	// Update
