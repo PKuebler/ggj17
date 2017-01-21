@@ -15,11 +15,20 @@ function Player(ctx, keyLayout, color, waves){
 	var up = false;
 	var down = false;
 
+	var isDead = false;
+
 	const playerAcceleration = 0.6;
 	const friction = 0.92;
 
+	function setDead() {
+		isDead = true;
+	}
+
 	// Key Handling
 	function keyDownHandler(e) {
+		if (isDead)
+			return;
+
 		if (e.keyCode == keyLayout.left) {
 			left = true;
 			right = false;
@@ -37,6 +46,9 @@ function Player(ctx, keyLayout, color, waves){
 	}
 
 	function keyUpHandler(e){
+		if (isDead)
+			return;
+
 		if(e.keyCode == keyLayout.left){
 			left = false;
 		}
@@ -63,7 +75,11 @@ function Player(ctx, keyLayout, color, waves){
 	// Draw
 	function drawPlayer(){
 		ctx.fillStyle = color;
-        ctx.fillRect(pos.x,pos.y,TILE_SIZE/4,TILE_SIZE/2);
+		if (isDead) {
+	        ctx.fillRect(pos.x,pos.y,TILE_SIZE/2,TILE_SIZE/4);
+	    } else {
+	        ctx.fillRect(pos.x,pos.y,TILE_SIZE/4,TILE_SIZE/2);	    	
+	    }
 
 //		ctx.beginPath();
 //		ctx.arc(pos.x,pos.y,PLAYER_WIDTH,0, 2 * Math.PI, false);
@@ -73,6 +89,9 @@ function Player(ctx, keyLayout, color, waves){
 
 	// Update
 	function updatePlayer() {
+		if (isDead)
+			return;
+
 		if (left)
 			velocity.x-=playerAcceleration;
 		else if (right)
@@ -110,7 +129,8 @@ function Player(ctx, keyLayout, color, waves){
 	return{
 		drawPlayer : drawPlayer,
 		updatePlayer : updatePlayer,
-		getPlayerTilePos: getPlayerTilePos
+		getPlayerTilePos: getPlayerTilePos,
+		setDead: setDead
 	}
 
 

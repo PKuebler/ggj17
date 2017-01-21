@@ -1,5 +1,5 @@
 
-function PlayerController(canvasID, waves) {
+function PlayerController(canvasID, waves, surfaces) {
 	var players = [];
 
 	// add canvas
@@ -26,6 +26,13 @@ function PlayerController(canvasID, waves) {
 		for (var i = 0; i < players.length; i++) {
 			players[i].updatePlayer();
 			players[i].drawPlayer();
+
+			// is Dead?
+			var tilePos = players[i].getPlayerTilePos();
+			var tile = surfaces.GetSurface(tilePos.x, tilePos.y);
+			if (tile == null || tile.life == 0) {
+				players[i].setDead();
+			}
 		}
 	}
 
