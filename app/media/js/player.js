@@ -84,7 +84,11 @@ function Player(id, ctx, keyLayout, color, waves){
 	// action Button
 	function actionButton(pos) {
 		//waves.SpawnWave(pos.y, pos.x, pos.direction);
-		waves.run(pos.direction, pos, WAVE_LENGTH, id);
+		var wLength = WAVE_LENGTH;
+		if (pos.direction.x != 0 && pos.direction.y != 0) {
+			wLength = wLength/3*2;
+		}
+		waves.run(pos.direction, pos, wLength, id);
 	}
 
 	// Draw the player & shadow of the Player
