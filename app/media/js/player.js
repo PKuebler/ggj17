@@ -2,8 +2,8 @@
 
 function Player(ctx, keyLayout, color, waves){
 	var pos = {
-		x: 0,
-		y: 0
+		x: 10*TILE_SIZE,
+		y: 10*TILE_SIZE
 	};
 	var velocity = {
 		x: 0.0,
