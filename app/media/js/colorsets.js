@@ -57,6 +57,20 @@ function ColorSets(){
 				return "rgba("+(230+randomInt(range))+", "+(10+randomInt(range))+", "+(75+randomInt(range))+", 1)"				
 			}
 		},
+
+		{
+			p1 : "rgba(237, 37, 78, 1)",
+			p2 : "rgba(76, 41, 110, 1)",
+			tile : function() {
+				return "rgba("+(225+randomInt(range))+", "+(200+randomInt(range))+", "+(80+randomInt(range))+", 1)"
+			},
+			wave : "rgba(194, 234, 189, 1)",
+			bg : function() {
+				return "rgba("+(90+randomInt(range))+", "+(190+randomInt(range))+", "+(5+randomInt(range))+", 1)"				
+			}
+		},
+
+
 		{
 			p1 : "rgba(134, 153, 345, 1)",
 			p2 : "rgba(188, 187, 189, 1)",
