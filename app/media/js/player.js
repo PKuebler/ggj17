@@ -38,7 +38,7 @@ function Player(id, ctx, keyLayout, color, waves){
 			return;
 
 		if (e.keyCode == keyLayout.left) {
-			right = false;
+			left = true;
 		}
 		if (e.keyCode == keyLayout.right) {
 			right = true;
