@@ -12,6 +12,7 @@ var score = {
 };
 var newGameCountDown = TIME_BETWEEN_ROUNDS;
 var font = Font("font");
+var audio = new Audio('media/Gamesound64kbs.mp3'); //gamesound wird hier geladen
 
 function startNewGame() {
 	isRun = false;
@@ -20,6 +21,9 @@ function startNewGame() {
 
 	// Init
 	colorset = ColorSets().randomColorSet();
+
+	//hier wird der Spielsound abgespielt
+	audio.play();
 
 	surfaces = Surfaces(MAP_SIZE.x, MAP_SIZE.y, colorset);
 	waves = WaveController(surfaces);
@@ -40,10 +44,6 @@ function startNewGame() {
 	bgRenderer.drawTiles(surfaces.GetSurfaces());
 
 	isRun = true;
-
-	//hier wird der Spielsound in eine Variable geladen und dann abgespielt
-	var audio = new Audio('media/idkright64Gamesoundkbs.mp3');
-	audio.play();
 }
 
 // loop
