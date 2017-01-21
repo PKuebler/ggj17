@@ -42,12 +42,12 @@ var WAVE_ANIMATION = {
 		endValue: 5
 	},
 	fadeIn: { // start value muss kleiner sein als end value
-		step: 2,
+		step: 1.5,
 		startValue: 0,
 		endValue: 10
 	},
 	fadeOut: { // start value muss größer sein als end value
-		step: -1,
+		step: -	0.5,
 		startValue: 10,
 		endValue: 0
 	}

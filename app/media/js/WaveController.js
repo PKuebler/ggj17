@@ -46,7 +46,6 @@ function WaveController(surefaces) {
 
 					if (wave.fadeOut <= WAVE_ANIMATION.fadeOut.endValue) {
 						wave.fadeOut = null;
-						//console.log(sureface.waves, j);
 						sureface.waves.splice(j,1);
 					}
 				}
