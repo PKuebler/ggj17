@@ -78,6 +78,27 @@ function Player(id, ctx, keyLayout, color, waves){
 		if(e.keyCode == keyLayout.action) {
 			actionButton(getPlayerTilePos());
 		}
+		if (e.keyCode == keyLayout.shotLeft) {
+			shot(-1, 0);
+		}
+		if (e.keyCode == keyLayout.shotRight) {
+			shot(1, 0);
+		}
+		if (e.keyCode == keyLayout.shotUp) {
+			shot(0, -1);			
+		}
+		if (e.keyCode == keyLayout.shotDown) {
+			shot(0, 1);			
+		}
+	}
+
+	function shot(x,y) {
+		var wLength = WAVE_LENGTH;
+		var direction = {
+			x: x,
+			y: y
+		};
+		waves.run(direction, getPlayerTilePos(), WAVE_LENGTH, id);
 	}
 
 	// action Button

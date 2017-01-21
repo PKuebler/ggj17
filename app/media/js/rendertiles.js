@@ -1,3 +1,4 @@
+
 function RenderTiles(contextID,colors) {
 	var colorset = colors;
 	// Set Canvas
@@ -13,18 +14,10 @@ function RenderTiles(contextID,colors) {
 	function drawTiles(tiles) {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-		ctx.fillStyle = colorset.tile;
 		for (var i = 0; i < tiles.length; i++) {
 			var tile = tiles[i];
 
-			if (tile.life < 100) {
-				var wavecol = tile.bg.slice(0, -2);
-
-				ctx.fillStyle = wavecol + remap(tile.life+20, 120,20,1,0) + ")";
-			} else {
-				ctx.fillStyle = tile.bg;			
-			}
-
+			ctx.fillStyle = tile.color.slice(0,-2)+remap(tile.life,100,0,1,0) + ")";
 	        ctx.fillRect(tile.x*(TILE_SIZE+MARGIN),tile.y*(TILE_SIZE+MARGIN),TILE_SIZE,TILE_SIZE);
 		}
 
