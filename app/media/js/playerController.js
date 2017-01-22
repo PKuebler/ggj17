@@ -116,10 +116,13 @@ function PlayerController(canvasID, waves, surfaces,color,animator,soundInstance
 	}
 
 	function setDead(player, triggerPlayer) {
+		console.log(player, triggerPlayer);
 		if (triggerPlayer == null) {
-			triggerPlayer = players[(player.playerID+1)%players.length];
+			console.log("next player?");
+			triggerPlayer = players[(player.playerID+1)%players.length].playerID;
 		}
-		pointToPlayer = triggerPlayer.playerID;
+		pointToPlayer = triggerPlayer;
+		console.log(pointToPlayer);
 		player.setDead();
 	}
 
