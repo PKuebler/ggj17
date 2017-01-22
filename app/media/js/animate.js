@@ -38,7 +38,23 @@ function Animate(){
 		}
 	}
 
+	function fadeoutUI(){
+		var splash = document.getElementById('splashscreen');
+		splash.className = 'fadeout';
+		console.log('called');
+		setTimeout(function(){splash.remove();},750);
+	}
+
+
+function clickHandler(){ // declare a function that updates the state
+  fadeoutUI();
+}
+
+var element = document.getElementById('splashscreen'); // grab a reference to your element
+element.addEventListener('click', clickHandler);
+
 	return{
-		shake : shake
+		shake : shake,
+		fadeoutUI : fadeoutUI
 	}
 }

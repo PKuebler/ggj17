@@ -18,10 +18,24 @@
           bottom:0px;}
 }
 
+@keyframes FADEOUT{
+  0%{ opacity: 1; }
+  100%{ opacity: 0; }
+}
+
 .shake{
   -webkit-animation: SCREENSHAKE 0.1s; /* Safari 4+ */
   -moz-animation:    SCREENSHAKE 0.1s; /* Fx 5+ */
   -o-animation:      SCREENSHAKE 0.1s; /* Opera 12+ */
   animation:         SCREENSHAKE 0.1s; /* IE 10+, Fx 29+ */
    animation-timing-function: ease-out;
+}
+
+.fadeout{
+  -webkit-animation: FADEOUT 0.5s forwards; /* Safari 4+ */
+  -moz-animation: FADEOUT 0.5s forwards; /* Fx 5+ */
+  -o-animation: FADEOUT 0.5s forwards; /* Opera 12+ */
+ animation: FADEOUT 0.5s forwards;
+   animation-timing-function: ease-out;
+
 }
