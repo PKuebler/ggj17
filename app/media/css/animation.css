@@ -2,12 +2,15 @@
 @keyframes SHAKE-TOP {
   0%   { top: 0px; }
   100% { top:4px; }
-  0%   { top: 0px; }
 }
 @keyframes SHAKE-LEFT {
   0%   { left: 0px; }
   100% { left: 4px; }
-  0%   { left: 0px; }
+}
+
+@keyframes SHAKE-BOTTOM {
+  0%   { bottom: 0px; }
+  100% { bottom: 4px; }
 }
 
 @keyframes SCREENSHAKE{
