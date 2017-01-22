@@ -9,7 +9,8 @@ function Animate(){
 		left : 0,
 		right : 0
 	};
-
+	var clicked = false;
+	var splash = document.getElementById('splashscreen');
 	var body = null;
 	var font = null;
 	var waves = null;
@@ -39,19 +40,26 @@ function Animate(){
 	}
 
 	function fadeoutUI(){
-		var splash = document.getElementById('splashscreen');
-		splash.className = 'fadeout';
-		console.log('called');
-		setTimeout(function(){splash.remove();},750);
+			splash.className = 'fadeout';
+			setTimeout(function(){
+			splash.removeEventListener('click',clickHandler);
+				splash.remove();
+			},550);
+			clicked = true;
 	}
 
 
 function clickHandler(){ // declare a function that updates the state
-  fadeoutUI();
+		if(!clicked){
+  			fadeoutUI();
+			splash.removeEventListener('click',clickHandler);
+		}
 }
 
-var element = document.getElementById('splashscreen'); // grab a reference to your element
-element.addEventListener('click', clickHandler);
+// grab a reference to your element
+if(document.getElementById('splashscreen')!=null){
+	splash.addEventListener('click', clickHandler);
+}
 
 	return{
 		shake : shake,
