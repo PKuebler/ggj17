@@ -13,7 +13,7 @@ var score = {
 var newGameCountDown = TIME_BETWEEN_ROUNDS;
 var font = Font("font");
 var soundInstance = Sound();
-
+var animate = null;
 function startNewGame() {
 	isRun = false;
 
@@ -21,6 +21,7 @@ function startNewGame() {
 
 	// Init
 	colorset = ColorSets().randomColorSet();
+	animate = Animate();
 
 	//hier wird der Spielsound abgespielt
 	soundInstance.playGameSong();
@@ -35,7 +36,7 @@ function startNewGame() {
 	waveRenderer = RenderTiles("waves",colorset);
 
 	// PlayerController
-	playerController = PlayerController("player", waves,surfaces,colorset);
+	playerController = PlayerController("player", waves,surfaces,colorset,animate);
 	playerController.spawnPlayer();
 	playerController.spawnPlayer();
 
@@ -88,4 +89,3 @@ function updateCountdown(num) {
 // start loop
 loop();
 startNewGame();
-//Animate().shakeScreen();

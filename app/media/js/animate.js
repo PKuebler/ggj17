@@ -1,3 +1,4 @@
+
 /* ANI ANI ANIMAAAAAAAAAATTEE HERO POWER - NI NI NI NI NINJAS */
 
 function Animate(){
@@ -18,18 +19,17 @@ function Animate(){
 
 	console.log(body);
 
-	function shakeScreen(){
+	function shake(){
 		console.log("shakeScreen");
 		// increase * time - floor bis max
 		var loop = Math.floor(3 + Math.random()*((7-1)))
 		var increase = Math.floor(8 + Math.random()*((16-1)));
 
-		player.className += 'top';
-		player.className += 'left';
+		player.className += 'shake';
 		
 	}
 
 	return{
-		shakeScreen : shakeScreen
+		shake : shake
 	}
 }

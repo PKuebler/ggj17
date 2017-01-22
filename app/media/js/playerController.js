@@ -1,4 +1,5 @@
-function PlayerController(canvasID, waves, surfaces,color) {
+function PlayerController(canvasID, waves, surfaces,color,animator) {
+	var animate = animator;
 	var colorset = color;
 	var players = [];
 
@@ -75,6 +76,7 @@ function PlayerController(canvasID, waves, surfaces,color) {
 		var tile = surfaces.GetSurface(pos.x, pos.y);
 		if (tile == null || tile.life <= 0) {
 			if(!player.isPlayerDead()){
+				animate.shake();
 				setDead(player, null);
 				return true;
 			}
@@ -85,6 +87,7 @@ function PlayerController(canvasID, waves, surfaces,color) {
 			});
 			if (waves.length > 0) {
 				if(!player.isPlayerDead()){
+					animate.shake();
 					setDead(player, waves[0].playerID);
 					return true;
 				}

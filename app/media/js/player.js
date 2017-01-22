@@ -3,6 +3,7 @@
 function Player(id, ctx, keyLayout, color, waves){
 	var playercolor = color;
 
+	var liegt = false;
 	var playerSize = {
 		x: TILE_SIZE/3,
 		y: TILE_SIZE/1.5
@@ -125,11 +126,20 @@ function Player(id, ctx, keyLayout, color, waves){
 		//player draw
 		ctx.fillStyle = color;
 		if (isDead) {
-	        ctx.fillRect(pos.x,pos.y,playerSize.y,playerSize.x);
+			if(!liegt){
+				setTimeout(function(){
+					liegt = true;
+				}, 200);
+					
+			}else
+			{
+					ctx.fillRect(pos.x,pos.y,playerSize.y,playerSize.x);
+
+			}
+			
 	    } else {
 	        ctx.fillRect(pos.x,pos.y,playerSize.x,playerSize.y);	    	
 	    }
-
 	}
 
 	// Update
