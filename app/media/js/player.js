@@ -1,7 +1,8 @@
 /* DER PLAYER AYER AYER AYER YEAH */
 
-function Player(id, ctx, keyLayout, color, waves){
+function Player(id, ctx, keyLayout, color, waves,soundInstance){
 	var playercolor = color;
+	var sound = soundInstance;
 
 	var liegt = false;
 	var playerSize = {
@@ -94,6 +95,7 @@ function Player(id, ctx, keyLayout, color, waves){
 	}
 
 	function shot(x,y) {
+		sound.waveShot();
 		var wLength = WAVE_LENGTH;
 		var direction = {
 			x: x,

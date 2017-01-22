@@ -36,7 +36,7 @@ function startNewGame() {
 	waveRenderer = RenderTiles("waves",colorset);
 
 	// PlayerController
-	playerController = PlayerController("player", waves,surfaces,colorset,animate);
+	playerController = PlayerController("player", waves,surfaces,colorset,animate,soundInstance);
 	playerController.spawnPlayer();
 	playerController.spawnPlayer();
 

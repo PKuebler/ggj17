@@ -1,4 +1,36 @@
 
+@keyframes SHAKE-TOP {
+  0%   { top: 0px; }
+  100% { top:4px; }
+  0%   { top: 0px; }
+}
+@keyframes SHAKE-LEFT {
+  0%   { left: 0px; }
+  100% { left: 4px; }
+  0%   { left: 0px; }
+}
+
+@keyframes SCREENSHAKE{
+
+   0%   { left: 0px; 
+          top: 0px; }
+
+    30% {
+          left:3px;
+          bottom:4px;
+    }
+    50%{
+          right:4px;
+          left:0px;
+          bottom:0px;
+          top:4px;
+    }
+  100% { left: 4px; 
+          top:4px;
+          right:0px;
+          bottom:0px;}
+}
+
 .top{
   -webkit-animation: SHAKE-TOP 0.1s; /* Safari 4+ */
   -moz-animation:    SHAKE-TOP 0.1s; /* Fx 5+ */
