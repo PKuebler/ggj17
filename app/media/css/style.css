@@ -50,5 +50,5 @@ body {
 	background-repeat: no-repeat;
 	background-image:url('../splash.png');
 	background-color:rgba(0,0,0,0.5);
-	background-size: cover;
+	background-size: contain;
 }
