@@ -17,7 +17,7 @@ function Animate(){
 	var background = null;
 	var bg = null;
 
-	var canvasi = [body = document.getElementsByTagName('body'),font = document.getElementById('font'),waves = document.getElementById('waves'),waves = document.getElementById('player'),waves = document.getElementById('background'),waves = document.getElementById('bg')]
+	var canvasi = [body = document.getElementsByTagName('body'),font = document.getElementById('font'),waves = document.getElementById('waves'),waves = document.getElementById('player'),waves = document.getElementById('background'),waves = document.getElementById('bg')];
 
 
 	function shake(){
