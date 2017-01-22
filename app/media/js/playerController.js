@@ -76,7 +76,6 @@ function PlayerController(canvasID, waves, surfaces,color,animator) {
 		var tile = surfaces.GetSurface(pos.x, pos.y);
 		if (tile == null || tile.life <= 0) {
 			if(!player.isPlayerDead()){
-				animate.shake();
 				setDead(player, null);
 				return true;
 			}

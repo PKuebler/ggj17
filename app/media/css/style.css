@@ -52,31 +52,8 @@ body {
           top:4px;
           right:0px;
           bottom:0px;}
-
-
 }
 
-.top{
-  -webkit-animation: SHAKE-TOP 0.1s; /* Safari 4+ */
-  -moz-animation:    SHAKE-TOP 0.1s; /* Fx 5+ */
-  -o-animation:      SHAKE-TOP 0.1s; /* Opera 12+ */
-  animation:         SHAKE-TOP 0.1s; /* IE 10+, Fx 29+ */
-   animation-timing-function: ease-out;
-}
-.left{
-  -webkit-animation: SHAKE-LEFT 0.1s; /* Safari 4+ */
-  -moz-animation:    SHAKE-LEFT 0.1s; /* Fx 5+ */
-  -o-animation:      SHAKE-LEFT 0.1s; /* Opera 12+ */
-  animation:         SHAKE-LEFT 0.1s; /* IE 10+, Fx 29+ */
-   animation-timing-function: ease-out;
-}
-.shake{
-  -webkit-animation: SCREENSHAKE 0.1s; /* Safari 4+ */
-  -moz-animation:    SCREENSHAKE 0.1s; /* Fx 5+ */
-  -o-animation:      SCREENSHAKE 0.1s; /* Opera 12+ */
-  animation:         SCREENSHAKE 0.1s; /* IE 10+, Fx 29+ */
-   animation-timing-function: ease-out;
-}
 #noise {
 	position: absolute;
 	z-index: 40;

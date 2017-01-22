@@ -117,12 +117,19 @@ function Player(id, ctx, keyLayout, color, waves){
 		//shadow draw
         ctx.fillStyle = "rgba(10, 10, 10, 0.1)";
 		ctx.beginPath();
-		ctx.moveTo(pos.x+playerSize.x, pos.y+playerSize.y);
-		ctx.lineTo(pos.x-5, pos.y+12);
-		ctx.lineTo(pos.x-20, pos.y-10);
-		ctx.lineTo(pos.x, pos.y-15);
+		if(!isDead){
+			ctx.moveTo(pos.x+playerSize.x, pos.y+playerSize.y);
+			ctx.lineTo(pos.x-5, pos.y+12);
+			ctx.lineTo(pos.x-20, pos.y-10);
+			ctx.lineTo(pos.x, pos.y-15);
+		}else{
+			ctx.fillRect(pos.x-5,pos.y-5,playerSize.y,playerSize.x);
+		}
+		
 		ctx.closePath();
 		ctx.fill();
+
+
 		//player draw
 		ctx.fillStyle = color;
 		if (isDead) {
@@ -130,7 +137,7 @@ function Player(id, ctx, keyLayout, color, waves){
 				setTimeout(function(){
 					liegt = true;
 				}, 200);
-					
+				ctx.fillRect(pos.x,pos.y,playerSize.y,playerSize.x);
 			}else
 			{
 					ctx.fillRect(pos.x,pos.y,playerSize.y,playerSize.x);

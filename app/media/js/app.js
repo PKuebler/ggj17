@@ -60,8 +60,10 @@ function loop() {
             if (newGameCountDown == TIME_BETWEEN_ROUNDS) {
             	if(playerController.getPointsToPlayerID() == 0){
 					score.player1++;
+					console.log('p1 points');
 				}else{
 					score.player2++;
+					console.log('p2 points');
 				}
             }
             // set timer
