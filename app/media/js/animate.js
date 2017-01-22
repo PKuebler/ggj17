@@ -10,23 +10,32 @@ function Animate(){
 		right : 0
 	};
 
-	var body = document.getElementsByTagName('body');
-	var font = document.getElementById('font');
-	var waves = document.getElementById('waves');
-	var player = document.getElementById('player');
-	var background = document.getElementById('background');
-	var bg = document.getElementById('bg');
+	var body = null;
+	var font = null;
+	var waves = null;
+	var player = null;
+	var background = null;
+	var bg = null;
 
-	console.log(body);
+	var canvasi = [body = document.getElementsByTagName('body'),font = document.getElementById('font'),waves = document.getElementById('waves'),waves = document.getElementById('player'),waves = document.getElementById('background'),waves = document.getElementById('bg')]
+
 
 	function shake(){
-		console.log("shakeScreen");
-		// increase * time - floor bis max
-		var loop = Math.floor(3 + Math.random()*((7-1)))
-		var increase = Math.floor(8 + Math.random()*((16-1)));
+		for(a = 1; a < canvasi.length; a++){
+			canvasi[a].className = "shake";
+		}
+		setTimeout(function(){clearCanvasClasses();},250);
+	}
 
-		player.className += 'shake';
+	/*playershake on canvas*/
+	// increase * time - floor bis max
+		//var loop = Math.floor(3 + Math.random()*((7-1)))
+		//var max = Math.floor(8 + Math.random()*((16-1)));
 		
+	function clearCanvasClasses(){
+		for(a = 1; a < canvasi.length; a++){
+			canvasi[a].removeAttribute("class");
+		}
 	}
 
 	return{
